@@ -22,11 +22,11 @@ namespace Simael
 
         private void FrmEdicionRegistros_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         public FrmEdicionRegistros(FrmEditarElimBit frm,string idBitacora,string tipo, string folio,string sicipo, string marca ,string modelo, string noserie,string resg,
-                                     string area, string problema,DateTime fecha) 
+                                     string area, string problema,DateTime fecha,int estado) 
         {
             InitializeComponent();
             txtTipo.Text = tipo;
@@ -41,6 +41,7 @@ namespace Simael
             dateTimePicker1.Value = fecha;
             this.idBitacora = idBitacora;
             objEdit = frm;
+            configurarComboBox(estado);
         }
 
         private bool validarCamposVacios()
@@ -59,6 +60,14 @@ namespace Simael
             return true;
         }
 
+        private void configurarComboBox(int estado) 
+        {
+            comboEstado.Items.Add("No revisado");
+            comboEstado.Items.Add("Revisado");
+            comboEstado.SelectedIndex = estado;
+            comboEstado.DropDownStyle = ComboBoxStyle.DropDownList;
+        }
+
         private void guardarCambios()
         {
             string tipo = txtTipo.Text;
@@ -71,9 +80,10 @@ namespace Simael
             string area = txtArea.Text;
             string problema = txtProblema.Text;
             DateTime fecha = dateTimePicker1.Value;
-
+            string valorEstado = comboEstado.SelectedIndex.ToString();
+            
             objBD = new BaseDatoBit();
-            bool estado = objBD.editaRegistroBit(idBitacora,folio,sicipo,tipo,marca,modelo,noserie,resguardante,area,problema,fecha);
+            bool estado = objBD.editaRegistroBit(idBitacora,folio,sicipo,tipo,marca,modelo,noserie,resguardante,area,problema,fecha,valorEstado);
             if(estado)
             {
                 MessageBox.Show("Los datos han sido guardados correctamente", "Editar Registros", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -106,7 +116,7 @@ namespace Simael
         {
             guardarCambios();
             this.Close();
-            objEdit.actualizarGridV();
+            objEdit.llenarTablaRegistros();
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)
@@ -116,7 +126,7 @@ namespace Simael
             {
                 eliminarRegistro();
                 this.Close();
-                objEdit.actualizarGridV();
+                objEdit.llenarTablaRegistros();
             }
         }
     }

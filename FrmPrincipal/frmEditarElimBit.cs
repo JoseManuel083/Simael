@@ -24,6 +24,7 @@ namespace Simael
         private string area;
         private string problema;
         private string idBitacora;
+        private int estado;
         private DateTime fecha;
         public FrmEditarElimBit()
         {
@@ -48,16 +49,29 @@ namespace Simael
             dgvBitacora.DataSource = objBD.buscarRegistroBit(param);
  
         }
-        // Llena el datagrid al entrar por primera vez al modulo de eliminacion edicion de registros
-        private void llenarTablaRegistros() 
+        // Llena el datagrid mostrando el historial de equipos registrados en la bitacora
+
+        public void llenarTablaRegistros() 
         {
             objBD = new BaseDatoBit();
-            dgvBitacora.DataSource = objBD.obtenerRegistrosBit();
+            DataTable tabla = new DataTable();
+            tabla = objBD.obtenerRegistrosBit();
+            dgvBitacora.DataSource = tabla;
+
+            for (int i = 0; i < dgvBitacora.Rows.Count; i++)
+            {
+                estado = Int32.Parse(tabla.Rows[i][11].ToString());
+                if (estado == 0)
+                    dgvBitacora.Rows[i].Cells[0].Style.BackColor = Color.Yellow;
+                else
+                    dgvBitacora.Rows[i].Cells[0].Style.BackColor = Color.Green;
+            }
         }
 
         private void establecerConfDgv() 
         {
             dgvBitacora.AutoGenerateColumns = false;
+            colValEstado.DataPropertyName = "estado";
             colEquipo.DataPropertyName = "equipotipo";
             colFolio.DataPropertyName = "folioumar";
             colSicipo.DataPropertyName = "sicipo";
@@ -73,33 +87,34 @@ namespace Simael
 
         private void obtenerDatos()
         {
-            equipoTipo = dgvBitacora.CurrentRow.Cells[0].Value.ToString();
-            folioUmar = dgvBitacora.CurrentRow.Cells[1].Value.ToString();
-            sicipo = dgvBitacora.CurrentRow.Cells[2].Value.ToString();
-            marca = dgvBitacora.CurrentRow.Cells[3].Value.ToString();
-            modelo = dgvBitacora.CurrentRow.Cells[4].Value.ToString();
-            noSerie = dgvBitacora.CurrentRow.Cells[5].Value.ToString();
-            resguardante = dgvBitacora.CurrentRow.Cells[6].Value.ToString();
-            area = dgvBitacora.CurrentRow.Cells[7].Value.ToString();
-            problema = dgvBitacora.CurrentRow.Cells[8].Value.ToString();
-            fecha = Convert.ToDateTime(dgvBitacora.CurrentRow.Cells[9].Value.ToString());
-            idBitacora = dgvBitacora.CurrentRow.Cells[10].Value.ToString();
+            estado = Convert.ToInt32(dgvBitacora.CurrentRow.Cells[1].Value.ToString());
+            equipoTipo = dgvBitacora.CurrentRow.Cells[2].Value.ToString();
+            folioUmar = dgvBitacora.CurrentRow.Cells[3].Value.ToString();
+            sicipo = dgvBitacora.CurrentRow.Cells[4].Value.ToString();
+            marca = dgvBitacora.CurrentRow.Cells[5].Value.ToString();
+            modelo = dgvBitacora.CurrentRow.Cells[6].Value.ToString();
+            noSerie = dgvBitacora.CurrentRow.Cells[7].Value.ToString();
+            resguardante = dgvBitacora.CurrentRow.Cells[8].Value.ToString();
+            area = dgvBitacora.CurrentRow.Cells[9].Value.ToString();
+            problema = dgvBitacora.CurrentRow.Cells[10].Value.ToString();
+            fecha = Convert.ToDateTime(dgvBitacora.CurrentRow.Cells[11].Value.ToString());
+            idBitacora = dgvBitacora.CurrentRow.Cells[12].Value.ToString();
         }
-        public void actualizarGridV() 
-        {
-            objBD = new BaseDatoBit();
-            dgvBitacora.DataSource = objBD.obtenerRegistrosBit();
-        }
+        //public void actualizarGridV() 
+        //{
+        //    objBD = new BaseDatoBit();
+        //    dgvBitacora.DataSource = objBD.obtenerRegistrosBit();
+        //}
 
         private void mostrarDatos() 
         {
             obtenerDatos();
-            objEdit = new FrmEdicionRegistros(this, idBitacora, equipoTipo, folioUmar, sicipo, marca, modelo, noSerie, resguardante, area, problema, fecha);
+            objEdit = new FrmEdicionRegistros(this, idBitacora, equipoTipo, folioUmar, sicipo, marca, modelo, noSerie, resguardante, area, problema, fecha,estado);
             objEdit.ShowDialog();
         }
         private void frmEditarElimBit_Load(object sender, EventArgs e)
         {
-
+            llenarTablaRegistros();
         }
         private void dgvBitacora_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -112,6 +127,11 @@ namespace Simael
             {
                 mostrarDatos();
             }
+        }
+
+        private void dgvBitacora_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+           
         }
     }
 }

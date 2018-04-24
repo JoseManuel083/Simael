@@ -48,6 +48,12 @@
     <Compile Include="BaseDatos\BaseDatoBit.cs" />
     <Compile Include="Clases\Bitacora.cs" />
     <Compile Include="Clases\Reporte.cs" />
+    <Compile Include="FormDetalleRegistro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDetalleRegistro.Designer.cs">
+      <DependentUpon>FormDetalleRegistro.cs</DependentUpon>
+    </Compile>
     <Compile Include="FormReportes.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -59,6 +65,12 @@
     </Compile>
     <Compile Include="FrmAgregarRegistroBit.Designer.cs">
       <DependentUpon>FrmAgregarRegistroBit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBuscar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmBuscar.Designer.cs">
+      <DependentUpon>FrmBuscar.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmEdicionRegistros.cs">
       <SubType>Form</SubType>
@@ -86,11 +98,17 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormDetalleRegistro.resx">
+      <DependentUpon>FormDetalleRegistro.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FormReportes.resx">
       <DependentUpon>FormReportes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAgregarRegistroBit.resx">
       <DependentUpon>FrmAgregarRegistroBit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBuscar.resx">
+      <DependentUpon>FrmBuscar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEdicionRegistros.resx">
       <DependentUpon>FrmEdicionRegistros.cs</DependentUpon>
@@ -183,6 +201,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Plantillas reportes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buscar.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

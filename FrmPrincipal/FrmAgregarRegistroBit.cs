@@ -91,5 +91,44 @@ namespace Simael
             
         }
 
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            if (String.Empty != txtFolio.Text)
+            {
+                objBD = new BaseDatoBit();
+                string[] registroPerifericos = objBD.obtenerRegistroBitacora(txtFolio.Text.Trim());
+                
+                if (registroPerifericos[0] != null)
+                {
+                    llenarFormularioBitacora(registroPerifericos);
+                }
+                else 
+                {
+                    MessageBox.Show("No existen registros con el folio ingresado","Agregar registro",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                }
+                
+            }
+            else
+            {
+                MessageBox.Show("Ingrese un folio a buscar","Agregar registro",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
+
+        }
+
+        private void llenarFormularioBitacora(string []datos) 
+        {
+            txtSicipo.Text = datos[0];
+            txtTipo.Text = datos[1];
+            txtMarca.Text = datos[2];
+            txtModelo.Text = datos[3];
+            txtNoSerie.Text = datos[4];
+            txtResguardante.Text = datos[5];
+        }
+
+        private void FrmAgregarRegistroBit_Load(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

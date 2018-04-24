@@ -16,10 +16,10 @@ namespace Simael
         private FrmBitacora objBit;
         private BaseDatoBit objBD;
         private FormReportes objReport;
+        private FrmBuscar objBuscar;
         public frmPrincipal()
         {
             InitializeComponent();
-            llenarGridEqiuposRecientes();
         }
 
         private void pictureBox3_Click(object sender, EventArgs e)
@@ -32,28 +32,19 @@ namespace Simael
             }
         }
 
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            panelPrincipal.Controls.Clear();
+            objBuscar = new FrmBuscar();
+            panelPrincipal.Controls.Add(objBuscar);
+        }
+
         private void frmBitacora1_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void llenarGridEqiuposRecientes()
-        {
-            confGridEqRecientes();
-            objBD = new BaseDatoBit();
-            dgvEquiposRecientes.DataSource = objBD.ultimosRegistros();
-
-        }
-        private void confGridEqRecientes()
-        {
-            dgvEquiposRecientes.Columns["colFolio"].DataPropertyName = "folioumar";
-            dgvEquiposRecientes.Columns["colSicipo"].DataPropertyName = "sicipo";
-            dgvEquiposRecientes.Columns["colTipoEquipo"].DataPropertyName = "equipotipo";
-            dgvEquiposRecientes.Columns["colMarca"].DataPropertyName = "marca";
-            dgvEquiposRecientes.Columns["colModelo"].DataPropertyName = "modelo";
-            dgvEquiposRecientes.Columns["colArea"].DataPropertyName = "area";
-            dgvEquiposRecientes.Columns["colFecha"].DataPropertyName = "fecha";
-        }
+       
         private void pictureBox1_MouseEnter(object sender, EventArgs e)
         {
             picBInicio.Height = picBInicio.Height + 3;
@@ -113,7 +104,6 @@ namespace Simael
         private void picBInicio_Click(object sender, EventArgs e)
         {
             panelPrincipal.Controls.Clear();
-            llenarGridEqiuposRecientes();
             panelPrincipal.Controls.Add(panelSubPrincipal);
         }
 
@@ -128,5 +118,22 @@ namespace Simael
             objReport = new FormReportes();
             panelPrincipal.Controls.Add(objReport);
         }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void panelSubPrincipal_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panelPrincipal_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+       
     }
 }

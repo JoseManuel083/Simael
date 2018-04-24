@@ -51,6 +51,7 @@
             this.txtTipo = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,7 +59,7 @@
             // 
             this.txtFolio.Location = new System.Drawing.Point(430, 87);
             this.txtFolio.Name = "txtFolio";
-            this.txtFolio.Size = new System.Drawing.Size(333, 20);
+            this.txtFolio.Size = new System.Drawing.Size(150, 20);
             this.txtFolio.TabIndex = 0;
             // 
             // txtSicipo
@@ -258,11 +259,22 @@
             this.pictureBox1.TabIndex = 23;
             this.pictureBox1.TabStop = false;
             // 
-            // frmAgregarRegistroBit
+            // btnBuscar
+            // 
+            this.btnBuscar.Location = new System.Drawing.Point(596, 85);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(75, 23);
+            this.btnBuscar.TabIndex = 24;
+            this.btnBuscar.Text = "Buscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            // 
+            // FrmAgregarRegistroBit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.txtTipo);
@@ -286,9 +298,8 @@
             this.Controls.Add(this.txtMarca);
             this.Controls.Add(this.txtSicipo);
             this.Controls.Add(this.txtFolio);
-            this.Name = "frmAgregarRegistroBit";
+            this.Name = "FrmAgregarRegistroBit";
             this.Size = new System.Drawing.Size(1178, 653);
-            //this.Load += new System.EventHandler(this.frmAgregarRegistroBit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -320,5 +331,6 @@
         private System.Windows.Forms.TextBox txtTipo;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Button btnBuscar;
     }
 }

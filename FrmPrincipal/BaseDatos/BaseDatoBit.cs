@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using MySql.Data;
 using MySql.Data.MySqlClient;
 using System.Data;
+using System.Windows.Forms;
 namespace Simael.BaseDatos
 {
     /*
@@ -31,9 +32,9 @@ namespace Simael.BaseDatos
         private void establecerConfBD()
         {
             servidor = "localhost";
-            nombreBD = "simael";
+            nombreBD = "inventarioumar";
             usuario = "root";
-            password = "";
+            password = "root";
             string cadenaConexion = "SERVER=" + servidor + ";" + "DATABASE=" + nombreBD + ";" + "UID=" +
                                      usuario + ";" + "PASSWORD=" + password + ";";
             conexion = new MySqlConnection(cadenaConexion);
@@ -104,6 +105,36 @@ namespace Simael.BaseDatos
             
         }
 
+        public string [] obtenerRegistroBitacora(string param) 
+        {
+            string []registro =  new String[6];
+            string query = "select id,categoria,marca,modelo,noserie,resguardante from perifericos where inventario like @parametro";
+            try 
+            {
+                if(abrirConexion())
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, conexion);
+                    cmd.Parameters.AddWithValue("@parametro", "%" + param + "%");
+                    MySqlDataReader reader = cmd.ExecuteReader();
+
+                    while(reader.Read())
+                    {
+                        registro[0] = Convert.ToString(reader["id"]);
+                        registro[1] = Convert.ToString(reader["categoria"]);
+                        registro[2] = Convert.ToString(reader["marca"]);
+                        registro[3] = Convert.ToString(reader["modelo"]);
+                        registro[4] = Convert.ToString(reader["noserie"]);
+                        registro[5] = Convert.ToString(reader["resguardante"]);
+                    }
+                    cerrarConexion();
+                }
+            }
+            catch(MySqlException ex)
+            {
+                Console.WriteLine("Ha ocurrido el siguient error {0}",ex);
+            }
+            return registro;
+        }
         public  DataTable obtenerRegistrosBit() 
         {
             DataTable dt = new DataTable();
@@ -149,10 +180,10 @@ namespace Simael.BaseDatos
         }
 
 
-        public DataTable ultimosRegistros() 
+        public DataTable todoRegistrosPerifericos() 
         {
             DataTable dt = new DataTable();
-            string query = "select * from equipos_recientes";
+            string query = "select * from perifericos limit 50";
             try
             {
                 if(abrirConexion())
@@ -166,6 +197,31 @@ namespace Simael.BaseDatos
                 return dt;
             }
             catch(DataException ex)
+            {
+                Console.WriteLine("Error {0}", ex);
+                return dt;
+            }
+        }
+
+        public DataTable registrosPerifericos(string param)
+        {
+            DataTable dt = new DataTable();
+            string query = "select * from perifericos where noserie like @parametro or ID like @parametro"
+                            + " or inventario like @parametro or Resguardante like @parametro";
+            try
+            {
+                if (abrirConexion())
+                {
+                    MySqlCommand cmd = new MySqlCommand(query, conexion);
+                    cmd.Parameters.AddWithValue("@parametro", "%" + param + "%");
+                    MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+                    adap.Fill(dt);
+                    cmd.ExecuteNonQuery();
+                    cerrarConexion();
+                }
+                return dt;
+            }
+            catch (DataException ex)
             {
                 Console.WriteLine("Error {0}", ex);
                 return dt;
@@ -198,13 +254,13 @@ namespace Simael.BaseDatos
         }
 
         public bool editaRegistroBit(string idRegistroBit, string folio, string sicipo, string equipo, string marca,string modelo,
-                                     string noserie,string resguardante, string area, string problema, DateTime fecha) 
+                                     string noserie,string resguardante, string area, string problema, DateTime fecha,string estado) 
         {
             try 
             {
                 string query = "update bitacora set folioumar = @folio,sicipo = @sicipo,equipotipo = @equipo,marca = @marca,"
                                 +"modelo = @modelo,noserie = @noserie,resguardante = @resguardante,area = @area,problema = @problema,"
-                                +"fecha = @fecha where idBitacora = @idBitacora";
+                                + "fecha = @fecha,estado = @estado where idBitacora = @idBitacora";
                 if (abrirConexion())
                 {
                     MySqlCommand cmd = new MySqlCommand(query,conexion);
@@ -219,6 +275,7 @@ namespace Simael.BaseDatos
                     cmd.Parameters.AddWithValue("@area", area);
                     cmd.Parameters.AddWithValue("@problema",problema);
                     cmd.Parameters.AddWithValue("@fecha",fecha);
+                    cmd.Parameters.AddWithValue("@estado",estado);
                     cmd.ExecuteNonQuery();
                     cerrarConexion();
                     return true;

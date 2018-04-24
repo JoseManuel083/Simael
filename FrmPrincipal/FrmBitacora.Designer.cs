@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.txtBuscar = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.panelBitacora = new System.Windows.Forms.Panel();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,28 +52,6 @@
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
-            // txtBuscar
-            // 
-            this.txtBuscar.Name = "txtBuscar";
-            this.txtBuscar.Size = new System.Drawing.Size(250, 24);
-            this.txtBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyDown);
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(68, 24);
-            this.toolStripMenuItem3.Text = "Buscar";
-            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
-            // 
-            // panelBitacora
-            // 
-            this.panelBitacora.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelBitacora.Location = new System.Drawing.Point(0, 28);
-            this.panelBitacora.Name = "panelBitacora";
-            this.panelBitacora.Size = new System.Drawing.Size(1178, 652);
-            this.panelBitacora.TabIndex = 1;
-           // this.panelBitacora.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBitacora_Paint);
-            // 
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.Image = global::Simael.Properties.Resources.add;
@@ -89,6 +67,28 @@
             this.toolStripMenuItem2.Size = new System.Drawing.Size(187, 24);
             this.toolStripMenuItem2.Text = "Historial de Registros";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // txtBuscar
+            // 
+            this.txtBuscar.Name = "txtBuscar";
+            this.txtBuscar.Size = new System.Drawing.Size(250, 24);
+            this.txtBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyDown);
+            this.txtBuscar.Click += new System.EventHandler(this.txtBuscar_Click);
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(68, 24);
+            this.toolStripMenuItem3.Text = "Buscar";
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            // 
+            // panelBitacora
+            // 
+            this.panelBitacora.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelBitacora.Location = new System.Drawing.Point(0, 28);
+            this.panelBitacora.Name = "panelBitacora";
+            this.panelBitacora.Size = new System.Drawing.Size(1178, 652);
+            this.panelBitacora.TabIndex = 1;
             // 
             // FrmBitacora
             // 

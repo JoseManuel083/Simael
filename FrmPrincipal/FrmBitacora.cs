@@ -17,7 +17,7 @@ namespace Simael
         public FrmBitacora()
         {
             InitializeComponent();
-            mostrarHistorialBitacora();
+            mostrarFormAgregarBit();
         }
 
         private void FrmBitacora_Load(object sender, EventArgs e)
@@ -32,11 +32,16 @@ namespace Simael
             panelBitacora.Controls.Add(objEditB);
         }
 
-        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        public void mostrarFormAgregarBit() 
         {
             objAddB = new FrmAgregarRegistroBit();
             panelBitacora.Controls.Clear();
             panelBitacora.Controls.Add(objAddB);
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            mostrarFormAgregarBit();
         }
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
@@ -63,6 +68,11 @@ namespace Simael
             {
                 buscarRegistro();
             }
+        }
+
+        private void txtBuscar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

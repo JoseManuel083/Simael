@@ -29,7 +29,14 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvBitacora = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colValEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colEquipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colFolio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSicipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -59,6 +66,8 @@
             this.dgvBitacora.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvBitacora.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvBitacora.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colEstado,
+            this.colValEstado,
             this.colEquipo,
             this.colFolio,
             this.colSicipo,
@@ -72,15 +81,76 @@
             this.colIdBitacora});
             this.dgvBitacora.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvBitacora.EnableHeadersVisualStyles = false;
-            this.dgvBitacora.Location = new System.Drawing.Point(13, 39);
+            this.dgvBitacora.Location = new System.Drawing.Point(13, 81);
             this.dgvBitacora.Name = "dgvBitacora";
             this.dgvBitacora.ReadOnly = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.MenuHighlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvBitacora.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvBitacora.RowHeadersVisible = false;
             this.dgvBitacora.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBitacora.Size = new System.Drawing.Size(1152, 599);
+            this.dgvBitacora.Size = new System.Drawing.Size(1152, 557);
             this.dgvBitacora.TabIndex = 0;
+            this.dgvBitacora.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBitacora_CellContentClick);
             this.dgvBitacora.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBitacora_CellDoubleClick);
             this.dgvBitacora.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvBitacora_KeyDown);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.LimeGreen;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Location = new System.Drawing.Point(32, 37);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(26, 22);
+            this.panel1.TabIndex = 1;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.Yellow;
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Location = new System.Drawing.Point(257, 37);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(26, 22);
+            this.panel2.TabIndex = 2;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(67, 43);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(121, 16);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Equipos revisados";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(289, 43);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(122, 16);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Equipos sin revisar";
+            // 
+            // colEstado
+            // 
+            this.colEstado.HeaderText = "Es";
+            this.colEstado.Name = "colEstado";
+            this.colEstado.ReadOnly = true;
+            this.colEstado.Width = 30;
+            // 
+            // colValEstado
+            // 
+            this.colValEstado.HeaderText = "Estado";
+            this.colValEstado.Name = "colValEstado";
+            this.colValEstado.ReadOnly = true;
+            this.colValEstado.Visible = false;
             // 
             // colEquipo
             // 
@@ -152,23 +222,34 @@
             this.colIdBitacora.ReadOnly = true;
             this.colIdBitacora.Visible = false;
             // 
-            // frmEditarElimBit
+            // FrmEditarElimBit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.dgvBitacora);
-            this.Name = "frmEditarElimBit";
+            this.Name = "FrmEditarElimBit";
             this.Size = new System.Drawing.Size(1178, 653);
             this.Load += new System.EventHandler(this.frmEditarElimBit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBitacora)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
         private System.Windows.Forms.DataGridView dgvBitacora;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colEstado;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colValEstado;
         private System.Windows.Forms.DataGridViewTextBoxColumn colEquipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFolio;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSicipo;
