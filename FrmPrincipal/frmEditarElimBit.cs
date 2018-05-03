@@ -14,13 +14,6 @@ namespace Simael
     {
         private BaseDatoBit objBD;
         private FrmEdicionRegistros objEdit;
-        private string tipoDGV;
-
-        public string TipoDGV
-        {
-            get { return tipoDGV; }
-            set { tipoDGV = value; }
-        }
         private string equipoTipo;
         private string folioUmar;
         private string sicipo;
@@ -33,6 +26,7 @@ namespace Simael
         private string idBitacora;
         private int estado;
         private DateTime fecha;
+        DataTable tabla;
         public FrmEditarElimBit()
         {
             InitializeComponent();
@@ -53,26 +47,17 @@ namespace Simael
         public void busquedaDataGV(string param) 
         {
             objBD = new BaseDatoBit();
-            dgvBitacora.DataSource = objBD.buscarRegistroBit(param);
- 
+            tabla =  objBD.buscarRegistroBit(param);
+            dgvBitacora.DataSource = tabla;
         }
         // Llena el datagrid mostrando el historial de equipos registrados en la bitacora
 
         public void llenarTablaRegistros() 
         {
             objBD = new BaseDatoBit();
-            DataTable tabla = new DataTable();
+            tabla = new DataTable();
             tabla = objBD.obtenerRegistrosBit();
             dgvBitacora.DataSource = tabla;
-
-            for (int i = 0; i < dgvBitacora.Rows.Count; i++)
-            {
-                estado = Int32.Parse(tabla.Rows[i][11].ToString());
-                if (estado == 0)
-                    dgvBitacora.Rows[i].Cells[0].Style.BackColor = Color.Yellow;
-                else
-                    dgvBitacora.Rows[i].Cells[0].Style.BackColor = Color.Green;
-            }
         }
 
         private void establecerConfDgv() 
@@ -121,7 +106,26 @@ namespace Simael
         }
         private void frmEditarElimBit_Load(object sender, EventArgs e)
         {
-            llenarTablaRegistros();
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            pintarColoresCeldasGrid();
+        }
+
+
+        //Este metodo pinta la primera columna del datagrid en su respectivo color
+        private void pintarColoresCeldasGrid() 
+        {
+            for (int i = 0; i < dgvBitacora.Rows.Count; i++)
+            {
+                estado = Int32.Parse(tabla.Rows[i][11].ToString());
+                if (estado == 0)
+                    dgvBitacora.Rows[i].Cells[0].Style.BackColor = Color.Yellow;
+                else
+                    dgvBitacora.Rows[i].Cells[0].Style.BackColor = Color.Green;
+            }
         }
         private void dgvBitacora_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {

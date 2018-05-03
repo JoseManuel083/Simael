@@ -332,7 +332,6 @@
             this.panelPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelPrincipal.AutoScroll = true;
             this.panelPrincipal.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panelPrincipal.Controls.Add(this.panelSubPrincipal);
             this.panelPrincipal.Location = new System.Drawing.Point(168, 29);

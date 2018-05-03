@@ -72,6 +72,12 @@
     <Compile Include="FrmBuscar.Designer.cs">
       <DependentUpon>FrmBuscar.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmBusqueda.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmBusqueda.Designer.cs">
+      <DependentUpon>FrmBusqueda.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmEdicionRegistros.cs">
       <SubType>Form</SubType>
     </Compile>
