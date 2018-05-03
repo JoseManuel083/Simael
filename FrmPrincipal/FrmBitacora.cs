@@ -28,6 +28,7 @@ namespace Simael
         public void mostrarHistorialBitacora() 
         {
             objEditB = new FrmEditarElimBit();
+            objEditB.llenarTablaRegistros();
             panelBitacora.Controls.Clear();
             panelBitacora.Controls.Add(objEditB);
         }
@@ -49,6 +50,8 @@ namespace Simael
             mostrarHistorialBitacora();
         }
 
+        //Boton aceptar del menu strip, efectua la busqueda de un equipo en especifico y muestra,
+        //el resultado en el datagrid del form bitacora
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
             buscarRegistro();
@@ -57,7 +60,8 @@ namespace Simael
         private void buscarRegistro() 
         {
             string param = txtBuscar.Text;
-            objEditB = new FrmEditarElimBit(param);
+            objEditB = new FrmEditarElimBit();
+            objEditB.busquedaDataGV(param);
             panelBitacora.Controls.Clear();
             panelBitacora.Controls.Add(objEditB);
         }

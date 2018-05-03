@@ -14,6 +14,13 @@ namespace Simael
     {
         private BaseDatoBit objBD;
         private FrmEdicionRegistros objEdit;
+        private string tipoDGV;
+
+        public string TipoDGV
+        {
+            get { return tipoDGV; }
+            set { tipoDGV = value; }
+        }
         private string equipoTipo;
         private string folioUmar;
         private string sicipo;
@@ -30,7 +37,7 @@ namespace Simael
         {
             InitializeComponent();
             establecerConfDgv();
-            llenarTablaRegistros();
+            //llenarTablaRegistros();
         }
 
         public FrmEditarElimBit(string param) 
@@ -41,7 +48,7 @@ namespace Simael
         }
 
         /*
-         * Este metodo es para efectuar las busquedas desde el menustrip
+         * Este metodo es para buscar un registro en especifico en la bitacora desde el menustrip
          */
         public void busquedaDataGV(string param) 
         {

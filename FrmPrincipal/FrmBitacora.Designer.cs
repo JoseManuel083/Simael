@@ -84,6 +84,7 @@
             // 
             // panelBitacora
             // 
+            this.panelBitacora.AutoSize = true;
             this.panelBitacora.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelBitacora.Location = new System.Drawing.Point(0, 28);
             this.panelBitacora.Name = "panelBitacora";
@@ -94,6 +95,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.Controls.Add(this.panelBitacora);

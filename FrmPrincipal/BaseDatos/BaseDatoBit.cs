@@ -161,7 +161,7 @@ namespace Simael.BaseDatos
             DataTable dt = new DataTable();
             try 
             {
-                string query = "select * from bitacora where folioumar  like @parametro or sicipo like @parametro or noserie like @parametro or marca like @parametro";
+                string query = "select * from bitacora where folioumar like @parametro or sicipo like @parametro or noserie like @parametro";
                 if (abrirConexion())
                 {
                     MySqlCommand cmd = new MySqlCommand(query,conexion);
@@ -170,6 +170,7 @@ namespace Simael.BaseDatos
                     adap.Fill(dt);
                     cmd.ExecuteNonQuery();
                     cerrarConexion();
+                    //MessageBox.Show("Se vuelve a ejecutar");
                 }
                 return dt;
             }catch(DataException ex)

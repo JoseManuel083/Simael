@@ -247,7 +247,7 @@
             // 
             // picBInicio
             // 
-            this.picBInicio.Image = global::Simael.Properties.Resources.home_icon;
+            this.picBInicio.Image = global::Simael.Properties.Resources.home;
             this.picBInicio.Location = new System.Drawing.Point(12, 37);
             this.picBInicio.Name = "picBInicio";
             this.picBInicio.Size = new System.Drawing.Size(59, 54);
@@ -309,7 +309,8 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.panel1.Controls.Add(this.pictureBox5);
             this.panel1.Controls.Add(this.pictureBox4);
@@ -328,6 +329,9 @@
             // 
             // panelPrincipal
             // 
+            this.panelPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelPrincipal.AutoScroll = true;
             this.panelPrincipal.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panelPrincipal.Controls.Add(this.panelSubPrincipal);
@@ -339,7 +343,9 @@
             // 
             // panelSubPrincipal
             // 
-            this.panelSubPrincipal.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.panelSubPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelSubPrincipal.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panelSubPrincipal.Location = new System.Drawing.Point(18, 16);
             this.panelSubPrincipal.Name = "panelSubPrincipal";
