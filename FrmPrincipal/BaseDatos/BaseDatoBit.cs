@@ -204,6 +204,7 @@ namespace Simael.BaseDatos
             }
         }
 
+        //Este metodo genera la busquedad de los equipos de computo, desde el formulario buscar
         public DataTable registrosPerifericos(string param)
         {
             DataTable dt = new DataTable();
@@ -226,6 +227,32 @@ namespace Simael.BaseDatos
             {
                 Console.WriteLine("Error {0}", ex);
                 return dt;
+            }
+        }
+
+        public DataTable busquedaAvanzada(string categoria, string palabra) 
+        {
+            DataTable table = new DataTable();
+            string query = "select * from perifericos where "+categoria+" like @palabra";
+            
+            try 
+            {
+                if(abrirConexion())
+                {
+                    MySqlCommand cmd = new MySqlCommand(query,conexion);
+                   // cmd.Parameters.AddWithValue("@categoria", categoria);
+                    cmd.Parameters.AddWithValue("@palabra", "%" + palabra + "%");
+                    MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
+                    adap.Fill(table);
+                    cmd.ExecuteNonQuery();
+                    cerrarConexion();
+                }
+                return table;
+            }
+            catch(DataException ex)
+            {
+                Console.WriteLine("Error {0}", ex);
+                return table;
             }
         }
 

@@ -78,5 +78,10 @@ namespace Simael
         {
 
         }
+
+        private void panelBitacora_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

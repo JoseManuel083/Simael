@@ -130,5 +130,10 @@ namespace Simael
 
         }
 
+        private void FrmAgregarRegistroBit_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

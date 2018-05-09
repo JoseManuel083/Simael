@@ -48,23 +48,21 @@
             this.lblBitacora = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblBajas = new System.Windows.Forms.Label();
-            this.picBInicio = new System.Windows.Forms.PictureBox();
-            this.picModuloReportes = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.picModuloReportes = new System.Windows.Forms.PictureBox();
+            this.picBInicio = new System.Windows.Forms.PictureBox();
             this.panelPrincipal = new System.Windows.Forms.Panel();
-            this.panelSubPrincipal = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBInicio)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picModuloReportes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel1.SuspendLayout();
-            this.panelPrincipal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picModuloReportes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBInicio)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -80,7 +78,7 @@
             this.salirToolStripMenuItem1});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1351, 29);
+            this.menuStrip1.Size = new System.Drawing.Size(604, 29);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -245,68 +243,6 @@
             this.lblBajas.TabIndex = 5;
             this.lblBajas.Text = "Buscar";
             // 
-            // picBInicio
-            // 
-            this.picBInicio.Image = global::Simael.Properties.Resources.home;
-            this.picBInicio.Location = new System.Drawing.Point(12, 37);
-            this.picBInicio.Name = "picBInicio";
-            this.picBInicio.Size = new System.Drawing.Size(59, 54);
-            this.picBInicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picBInicio.TabIndex = 0;
-            this.picBInicio.TabStop = false;
-            this.picBInicio.Click += new System.EventHandler(this.picBInicio_Click);
-            this.picBInicio.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
-            this.picBInicio.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
-            // 
-            // picModuloReportes
-            // 
-            this.picModuloReportes.Image = global::Simael.Properties.Resources.Report;
-            this.picModuloReportes.Location = new System.Drawing.Point(12, 134);
-            this.picModuloReportes.Name = "picModuloReportes";
-            this.picModuloReportes.Size = new System.Drawing.Size(59, 50);
-            this.picModuloReportes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.picModuloReportes.TabIndex = 6;
-            this.picModuloReportes.TabStop = false;
-            this.picModuloReportes.Click += new System.EventHandler(this.picModuloReportes_Click);
-            this.picModuloReportes.MouseEnter += new System.EventHandler(this.pictureBox2_MouseEnter);
-            this.picModuloReportes.MouseLeave += new System.EventHandler(this.pictureBox2_MouseLeave);
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::Simael.Properties.Resources.repair_pc_icon;
-            this.pictureBox3.Location = new System.Drawing.Point(3, 232);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(71, 50);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 7;
-            this.pictureBox3.TabStop = false;
-            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
-            this.pictureBox3.MouseEnter += new System.EventHandler(this.pictureBox3_MouseEnter);
-            this.pictureBox3.MouseLeave += new System.EventHandler(this.pictureBox3_MouseLeave);
-            // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::Simael.Properties.Resources.buscar;
-            this.pictureBox4.Location = new System.Drawing.Point(12, 339);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(59, 50);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 8;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
-            this.pictureBox4.MouseEnter += new System.EventHandler(this.pictureBox4_MouseEnter);
-            this.pictureBox4.MouseLeave += new System.EventHandler(this.pictureBox4_MouseLeave);
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::Simael.Properties.Resources.pendiente;
-            this.pictureBox5.Location = new System.Drawing.Point(12, 436);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(59, 50);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 9;
-            this.pictureBox5.TabStop = false;
-            // 
             // panel1
             // 
             this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -327,42 +263,95 @@
             this.panel1.Size = new System.Drawing.Size(168, 661);
             this.panel1.TabIndex = 1;
             // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::Simael.Properties.Resources.pendiente;
+            this.pictureBox5.Location = new System.Drawing.Point(12, 436);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(59, 50);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 9;
+            this.pictureBox5.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::Simael.Properties.Resources.buscar;
+            this.pictureBox4.Location = new System.Drawing.Point(12, 339);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(59, 50);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 8;
+            this.pictureBox4.TabStop = false;
+            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            this.pictureBox4.MouseEnter += new System.EventHandler(this.pictureBox4_MouseEnter);
+            this.pictureBox4.MouseLeave += new System.EventHandler(this.pictureBox4_MouseLeave);
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Simael.Properties.Resources.Checklist;
+            this.pictureBox3.Location = new System.Drawing.Point(12, 232);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(62, 54);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 7;
+            this.pictureBox3.TabStop = false;
+            this.pictureBox3.Click += new System.EventHandler(this.pictureBox3_Click);
+            this.pictureBox3.MouseEnter += new System.EventHandler(this.pictureBox3_MouseEnter);
+            this.pictureBox3.MouseLeave += new System.EventHandler(this.pictureBox3_MouseLeave);
+            // 
+            // picModuloReportes
+            // 
+            this.picModuloReportes.Image = global::Simael.Properties.Resources.Report;
+            this.picModuloReportes.Location = new System.Drawing.Point(12, 134);
+            this.picModuloReportes.Name = "picModuloReportes";
+            this.picModuloReportes.Size = new System.Drawing.Size(59, 50);
+            this.picModuloReportes.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picModuloReportes.TabIndex = 6;
+            this.picModuloReportes.TabStop = false;
+            this.picModuloReportes.Click += new System.EventHandler(this.picModuloReportes_Click);
+            this.picModuloReportes.MouseEnter += new System.EventHandler(this.pictureBox2_MouseEnter);
+            this.picModuloReportes.MouseLeave += new System.EventHandler(this.pictureBox2_MouseLeave);
+            // 
+            // picBInicio
+            // 
+            this.picBInicio.Image = global::Simael.Properties.Resources.home;
+            this.picBInicio.Location = new System.Drawing.Point(12, 37);
+            this.picBInicio.Name = "picBInicio";
+            this.picBInicio.Size = new System.Drawing.Size(59, 54);
+            this.picBInicio.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picBInicio.TabIndex = 0;
+            this.picBInicio.TabStop = false;
+            this.picBInicio.Click += new System.EventHandler(this.picBInicio_Click);
+            this.picBInicio.MouseEnter += new System.EventHandler(this.pictureBox1_MouseEnter);
+            this.picBInicio.MouseLeave += new System.EventHandler(this.pictureBox1_MouseLeave);
+            // 
             // panelPrincipal
             // 
             this.panelPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelPrincipal.AutoScroll = true;
             this.panelPrincipal.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panelPrincipal.Controls.Add(this.panelSubPrincipal);
             this.panelPrincipal.Location = new System.Drawing.Point(168, 29);
             this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(1183, 689);
+            this.panelPrincipal.Size = new System.Drawing.Size(436, 689);
             this.panelPrincipal.TabIndex = 3;
             this.panelPrincipal.Paint += new System.Windows.Forms.PaintEventHandler(this.panelPrincipal_Paint);
-            // 
-            // panelSubPrincipal
-            // 
-            this.panelSubPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelSubPrincipal.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panelSubPrincipal.Location = new System.Drawing.Point(18, 16);
-            this.panelSubPrincipal.Name = "panelSubPrincipal";
-            this.panelSubPrincipal.Size = new System.Drawing.Size(1143, 646);
-            this.panelSubPrincipal.TabIndex = 3;
             // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1351, 720);
+            this.ClientSize = new System.Drawing.Size(604, 720);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.panelPrincipal);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.DoubleBuffered = true;
+            this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -373,14 +362,13 @@
             this.menuStrip1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picBInicio)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.picModuloReportes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            this.panelPrincipal.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picModuloReportes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picBInicio)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -414,8 +402,7 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panelPrincipal;
-        private System.Windows.Forms.Panel panelSubPrincipal;
+        public System.Windows.Forms.Panel panelPrincipal;
 
     }
 }

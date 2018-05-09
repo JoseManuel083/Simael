@@ -300,6 +300,7 @@
             this.Controls.Add(this.txtFolio);
             this.Name = "FrmAgregarRegistroBit";
             this.Size = new System.Drawing.Size(1178, 653);
+            this.Load += new System.EventHandler(this.FrmAgregarRegistroBit_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

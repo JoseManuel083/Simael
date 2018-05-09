@@ -14,9 +14,9 @@ namespace Simael
     public partial class frmPrincipal : Form
     {
         private FrmBitacora objBit;
-        private BaseDatoBit objBD;
         private FormReportes objReport;
         private FrmBuscar objBuscar;
+        private FrmBusqueda objBusc;
         public frmPrincipal()
         {
             InitializeComponent();
@@ -29,14 +29,17 @@ namespace Simael
                 objBit = new FrmBitacora();
                 panelPrincipal.Controls.Clear();
                 panelPrincipal.Controls.Add(objBit);
+                panelPrincipal.AutoScroll = false;
             }
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
             panelPrincipal.Controls.Clear();
-            objBuscar = new FrmBuscar();
-            panelPrincipal.Controls.Add(objBuscar);
+            objBusc = new FrmBusqueda();
+            panelPrincipal.Controls.Clear(); ;
+            panelPrincipal.Controls.Add(objBusc);
+            panelPrincipal.AutoScroll = false;
         }
 
         private void frmBitacora1_Load(object sender, EventArgs e)
@@ -104,7 +107,7 @@ namespace Simael
         private void picBInicio_Click(object sender, EventArgs e)
         {
             panelPrincipal.Controls.Clear();
-            panelPrincipal.Controls.Add(panelSubPrincipal);
+            //panelPrincipal.Controls.Add(panelSubPrincipal);
         }
 
         private void salirToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -117,6 +120,7 @@ namespace Simael
             panelPrincipal.Controls.Clear();
             objReport = new FormReportes();
             panelPrincipal.Controls.Add(objReport);
+            panelPrincipal.AutoScroll = true;
         }
 
         private void frmPrincipal_Load(object sender, EventArgs e)

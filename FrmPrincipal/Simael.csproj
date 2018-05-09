@@ -60,11 +60,29 @@
     <Compile Include="FormReportes.Designer.cs">
       <DependentUpon>FormReportes.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmAgregarComputadora.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmAgregarComputadora.Designer.cs">
+      <DependentUpon>FrmAgregarComputadora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAgregarPerifericoInventario.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmAgregarPerifericoInventario.Designer.cs">
+      <DependentUpon>FrmAgregarPerifericoInventario.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmAgregarRegistroBit.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="FrmAgregarRegistroBit.Designer.cs">
       <DependentUpon>FrmAgregarRegistroBit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmAgregarRegistroInv.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmAgregarRegistroInv.Designer.cs">
+      <DependentUpon>FrmAgregarRegistroInv.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmBuscar.cs">
       <SubType>UserControl</SubType>
@@ -77,6 +95,12 @@
     </Compile>
     <Compile Include="FrmBusqueda.Designer.cs">
       <DependentUpon>FrmBusqueda.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBusquedaAvanzada.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBusquedaAvanzada.Designer.cs">
+      <DependentUpon>FrmBusquedaAvanzada.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmEdicionRegistros.cs">
       <SubType>Form</SubType>
@@ -110,11 +134,26 @@
     <EmbeddedResource Include="FormReportes.resx">
       <DependentUpon>FormReportes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAgregarComputadora.resx">
+      <DependentUpon>FrmAgregarComputadora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmAgregarPerifericoInventario.resx">
+      <DependentUpon>FrmAgregarPerifericoInventario.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmAgregarRegistroBit.resx">
       <DependentUpon>FrmAgregarRegistroBit.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmAgregarRegistroInv.resx">
+      <DependentUpon>FrmAgregarRegistroInv.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmBuscar.resx">
       <DependentUpon>FrmBuscar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBusqueda.resx">
+      <DependentUpon>FrmBusqueda.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBusquedaAvanzada.resx">
+      <DependentUpon>FrmBusquedaAvanzada.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEdicionRegistros.resx">
       <DependentUpon>FrmEdicionRegistros.cs</DependentUpon>
@@ -216,6 +255,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\advanced.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tools.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inventario2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\inventario3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\lista.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Checklist.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
