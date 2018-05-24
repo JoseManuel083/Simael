@@ -203,6 +203,16 @@ namespace Simael.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap file {
+            get {
+                object obj = ResourceManager.GetObject("file", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap help {
             get {
                 object obj = ResourceManager.GetObject("help", resourceCulture);
@@ -326,6 +336,16 @@ namespace Simael.Properties {
         internal static System.Drawing.Bitmap reportes2 {
             get {
                 object obj = ResourceManager.GetObject("reportes2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap SimaelLogo1 {
+            get {
+                object obj = ResourceManager.GetObject("SimaelLogo1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

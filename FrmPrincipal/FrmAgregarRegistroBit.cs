@@ -91,28 +91,31 @@ namespace Simael
             
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private void buscarEquipo() 
         {
             if (String.Empty != txtFolio.Text)
             {
                 objBD = new BaseDatoBit();
                 string[] registroPerifericos = objBD.obtenerRegistroBitacora(txtFolio.Text.Trim());
-                
+
                 if (registroPerifericos[0] != null)
                 {
                     llenarFormularioBitacora(registroPerifericos);
                 }
-                else 
+                else
                 {
-                    MessageBox.Show("No existen registros con el folio ingresado","Agregar registro",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show("No existen registros con el folio ingresado", "Agregar registro", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                
+
             }
             else
             {
-                MessageBox.Show("Ingrese un folio a buscar","Agregar registro",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                MessageBox.Show("Ingrese un folio a buscar", "Agregar registro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-
+        }
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            buscarEquipo();
         }
 
         private void llenarFormularioBitacora(string []datos) 
@@ -133,6 +136,14 @@ namespace Simael
         private void FrmAgregarRegistroBit_Load_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtFolio_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                buscarEquipo();
+            }
         }
 
     }

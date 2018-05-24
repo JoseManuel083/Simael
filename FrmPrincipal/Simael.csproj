@@ -11,6 +11,22 @@
     <AssemblyName>Simael</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publicar\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -30,6 +46,18 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>5765DCF77B28D6D0C1B05C7F79C2DF7208154F34</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>Simael_ClaveTemporal.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="MySql.Data, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
@@ -54,11 +82,11 @@
     <Compile Include="FormDetalleRegistro.Designer.cs">
       <DependentUpon>FormDetalleRegistro.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormReportes.cs">
+    <Compile Include="FrmAgregarReportes.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FormReportes.Designer.cs">
-      <DependentUpon>FormReportes.cs</DependentUpon>
+    <Compile Include="FrmAgregarReportes.Designer.cs">
+      <DependentUpon>FrmAgregarReportes.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmAgregarComputadora.cs">
       <SubType>UserControl</SubType>
@@ -90,11 +118,23 @@
     <Compile Include="FrmBuscar.Designer.cs">
       <DependentUpon>FrmBuscar.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmBusqueda.cs">
+    <Compile Include="FrmHistorialReportes.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FrmBusqueda.Designer.cs">
-      <DependentUpon>FrmBusqueda.cs</DependentUpon>
+    <Compile Include="FrmHistorialReportes.Designer.cs">
+      <DependentUpon>FrmHistorialReportes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmInicio.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmInicio.Designer.cs">
+      <DependentUpon>FrmInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMenuBuscar.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmMenuBuscar.Designer.cs">
+      <DependentUpon>FrmMenuBuscar.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmBusquedaAvanzada.cs">
       <SubType>Form</SubType>
@@ -126,13 +166,19 @@
     <Compile Include="FrmBitacora.Designer.cs">
       <DependentUpon>FrmBitacora.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmMenuReportes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FrmMenuReportes.Designer.cs">
+      <DependentUpon>FrmMenuReportes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="FormDetalleRegistro.resx">
       <DependentUpon>FormDetalleRegistro.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormReportes.resx">
-      <DependentUpon>FormReportes.cs</DependentUpon>
+    <EmbeddedResource Include="FrmAgregarReportes.resx">
+      <DependentUpon>FrmAgregarReportes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAgregarComputadora.resx">
       <DependentUpon>FrmAgregarComputadora.cs</DependentUpon>
@@ -149,8 +195,14 @@
     <EmbeddedResource Include="FrmBuscar.resx">
       <DependentUpon>FrmBuscar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmBusqueda.resx">
-      <DependentUpon>FrmBusqueda.cs</DependentUpon>
+    <EmbeddedResource Include="FrmHistorialReportes.resx">
+      <DependentUpon>FrmHistorialReportes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmInicio.resx">
+      <DependentUpon>FrmInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenuBuscar.resx">
+      <DependentUpon>FrmMenuBuscar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmBusquedaAvanzada.resx">
       <DependentUpon>FrmBusquedaAvanzada.cs</DependentUpon>
@@ -160,6 +212,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmEditarElimBit.resx">
       <DependentUpon>FrmEditarElimBit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMenuReportes.resx">
+      <DependentUpon>FrmMenuReportes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPrincipal.resx">
       <DependentUpon>FrmPrincipal.cs</DependentUpon>
@@ -186,6 +241,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Simael_ClaveTemporal.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -276,6 +332,29 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Checklist.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\SimaelLogo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\file.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

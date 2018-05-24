@@ -1,6 +1,6 @@
 ﻿namespace Simael
 {
-    partial class FrmBusqueda
+    partial class FrmMenuBuscar
     {
         /// <summary> 
         /// Variable del diseñador requerida.
@@ -86,19 +86,20 @@
             // 
             // panelBusqueda
             // 
-            this.panelBusqueda.Location = new System.Drawing.Point(0, 40);
+            this.panelBusqueda.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelBusqueda.Location = new System.Drawing.Point(0, 28);
             this.panelBusqueda.Name = "panelBusqueda";
-            this.panelBusqueda.Size = new System.Drawing.Size(1178, 640);
+            this.panelBusqueda.Size = new System.Drawing.Size(1178, 652);
             this.panelBusqueda.TabIndex = 1;
             this.panelBusqueda.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBusqueda_Paint);
             // 
-            // FrmBusqueda
+            // FrmMenuBuscar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panelBusqueda);
             this.Controls.Add(this.menuStrip1);
-            this.Name = "FrmBusqueda";
+            this.Name = "FrmMenuBuscar";
             this.Size = new System.Drawing.Size(1178, 680);
             this.Load += new System.EventHandler(this.FrmBusqueda_Load);
             this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmBusqueda_KeyDown);

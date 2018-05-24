@@ -68,6 +68,40 @@ namespace Simael.BaseDatos
             }
         }
 
+        public bool agregarPerifericoInventario(string sicipo, string categoria, string tipo, string marca, string modelo, string noserie,
+            string color, string composicion, string estadoFisico, string precio, string resguardante,string area) 
+        {
+            try 
+            {
+                if (abrirConexion())
+                {
+                    MySqlCommand cmd = new MySqlCommand("", conexion);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@ID",sicipo);
+                    cmd.Parameters.AddWithValue("@ID", categoria);
+                    cmd.Parameters.AddWithValue("@ID", tipo);
+                    cmd.Parameters.AddWithValue("@ID", marca);
+                    cmd.Parameters.AddWithValue("@ID", modelo);
+                    cmd.Parameters.AddWithValue("@ID", noserie);
+                    cmd.Parameters.AddWithValue("@ID", color);
+                    cmd.Parameters.AddWithValue("@ID", composicion);
+                    cmd.Parameters.AddWithValue("@ID", estadoFisico);
+                    cmd.Parameters.AddWithValue("@ID", resguardante);
+                    cmd.Parameters.AddWithValue("@ID", area);
+
+                    cmd.ExecuteNonQuery();
+                    cerrarConexion();
+                    return true;
+                }
+                else
+                    return false;
+            }
+            catch(MySqlException ex)
+            {
+                Console.WriteLine("Error {0}",ex);
+                return false;
+            }
+        }
         public bool agregarRegistroBitacora(string folio,string sicipo,string equipo,string marca,string modelo, string noserie,
                                             string resguardante,string area,string problema,DateTime fecha) 
         {
@@ -180,7 +214,36 @@ namespace Simael.BaseDatos
             }
         }
 
+        //Metodo para obtener el registro que se agregara en el reporte
+        public List<String> obtenerRegistroReporte(string parametro) 
+        {
+            List<String> equipo = new List<string>();
+            try 
+            {
+                abrirConexion();
+                MySqlCommand cmd = new MySqlCommand("Equipo",conexion);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@parametro",parametro);
+                MySqlDataReader reader = cmd.ExecuteReader();
 
+                while(reader.Read())
+                {
+                    for (int i = 0; i < reader.FieldCount;i++)
+                    {
+                        equipo.Add(reader.GetString(i));
+                    }
+                }
+
+                cerrarConexion();
+                return equipo;
+            }
+            catch(DataException ex)
+            {
+                Console.WriteLine("Error {0}", ex);
+                return equipo;
+            }
+            
+        }
         public DataTable todoRegistrosPerifericos() 
         {
             DataTable dt = new DataTable();

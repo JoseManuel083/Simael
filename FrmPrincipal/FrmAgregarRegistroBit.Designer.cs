@@ -61,6 +61,7 @@
             this.txtFolio.Name = "txtFolio";
             this.txtFolio.Size = new System.Drawing.Size(150, 20);
             this.txtFolio.TabIndex = 0;
+            this.txtFolio.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFolio_KeyDown);
             // 
             // txtSicipo
             // 

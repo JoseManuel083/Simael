@@ -10,36 +10,43 @@ using System.Windows.Forms;
 using Simael.BaseDatos;
 namespace Simael
 {
-  
+    /*
+       * Autor: Jose Manuel Gomez Alavez
+       * Fecha: 20 Enero 2018
+       * Descripcion: Formulario principal de SIMAEL, desde este form se mandan a llamar a los controles de usuarios correspondientes
+       */
     public partial class frmPrincipal : Form
     {
         private FrmBitacora objBit;
-        private FormReportes objReport;
+        private FrmMenuReportes objReport;
         private FrmBuscar objBuscar;
-        private FrmBusqueda objBusc;
+        private FrmMenuBuscar objBusc;
+        private FrmInicio objInicio;
         public frmPrincipal()
         {
             InitializeComponent();
+            panelInicioClick();
         }
 
-        private void pictureBox3_Click(object sender, EventArgs e)
+        private void picBInicio_Click(object sender, EventArgs e)
         {
-            if(!panelPrincipal.Controls.Contains(objBit))
-            {
-                objBit = new FrmBitacora();
-                panelPrincipal.Controls.Clear();
-                panelPrincipal.Controls.Add(objBit);
-                panelPrincipal.AutoScroll = false;
-            }
+            panelInicioClick();
         }
 
-        private void pictureBox4_Click(object sender, EventArgs e)
+
+        private void picBitacora_Click(object sender, EventArgs e)
         {
-            panelPrincipal.Controls.Clear();
-            objBusc = new FrmBusqueda();
-            panelPrincipal.Controls.Clear(); ;
-            panelPrincipal.Controls.Add(objBusc);
-            panelPrincipal.AutoScroll = false;
+            panelBitacoraClick();
+        }
+
+        private void picModuloReportes_Click(object sender, EventArgs e)
+        {
+            panelReporteClick();
+        }
+
+        private void picBuscar_Click(object sender, EventArgs e)
+        {
+            panelBuscarClick();
         }
 
         private void frmBitacora1_Load(object sender, EventArgs e)
@@ -48,96 +55,121 @@ namespace Simael
         }
 
        
-        private void pictureBox1_MouseEnter(object sender, EventArgs e)
+        private void picBInicio_MouseEnter(object sender, EventArgs e)
         {
             picBInicio.Height = picBInicio.Height + 3;
             picBInicio.Width = picBInicio.Width + 3;
-            lblInventario.Font = new Font("Microsoft Sans Serif", 12);
+            lblInicio.Font = new Font("Microsoft Sans Serif", 12);
         }
 
-        private void pictureBox1_MouseLeave(object sender, EventArgs e)
+        private void picBInicio_MouseLeave(object sender, EventArgs e)
         {
             picBInicio.Height = picBInicio.Height -3;
             picBInicio.Width = picBInicio.Width -3;
-            lblInventario.Font = new Font("Microsoft Sans Serif", 10);
+            lblInicio.Font = new Font("Microsoft Sans Serif", 10);
         }
 
-        private void pictureBox2_MouseEnter(object sender, EventArgs e)
+        private void picModuloReportes_MouseEnter(object sender, EventArgs e)
         {
             picModuloReportes.Height = picModuloReportes.Height + 3;
             picModuloReportes.Width = picModuloReportes.Width + 3;
             lblReportes.Font = new Font("Microsoft Sans Serif", 12);
         }
 
-        private void pictureBox2_MouseLeave(object sender, EventArgs e)
+        private void picModuloReportes_MouseLeave(object sender, EventArgs e)
         {
             picModuloReportes.Height = picModuloReportes.Height - 3;
             picModuloReportes.Width = picModuloReportes.Width - 3;
             lblReportes.Font = new Font("Microsoft Sans Serif", 10);
         }
 
-        private void pictureBox3_MouseEnter(object sender, EventArgs e)
+        private void picBitacora_MouseEnter(object sender, EventArgs e)
         {
-            pictureBox3.Height = pictureBox3.Height + 3;
-            pictureBox3.Width = pictureBox3.Width + 3;
+            picBitacora.Height = picBitacora.Height + 3;
+            picBitacora.Width = picBitacora.Width + 3;
             lblBitacora.Font = new Font("Microsoft Sans Serif", 12);
         }
 
-        private void pictureBox3_MouseLeave(object sender, EventArgs e)
+        private void picBitacora_MouseLeave(object sender, EventArgs e)
         {
-            pictureBox3.Height = pictureBox3.Height - 3;
-            pictureBox3.Width = pictureBox3.Width - 3;
+            picBitacora.Height = picBitacora.Height - 3;
+            picBitacora.Width = picBitacora.Width - 3;
             lblBitacora.Font = new Font("Microsoft Sans Serif", 10);
         }
 
-        private void pictureBox4_MouseEnter(object sender, EventArgs e)
+        private void picBuscar_MouseEnter(object sender, EventArgs e)
         {
-            pictureBox4.Height = pictureBox4.Height + 3;
-            pictureBox4.Width = pictureBox4.Width + 3;
-            lblBajas.Font = new Font("Microsoft Sans Serif", 12);
+            picBuscar.Height = picBuscar.Height + 3;
+            picBuscar.Width = picBuscar.Width + 3;
+            lblBuscar.Font = new Font("Microsoft Sans Serif", 12);
         }
 
-        private void pictureBox4_MouseLeave(object sender, EventArgs e)
+        private void picBuscar_MouseLeave(object sender, EventArgs e)
         {
-            pictureBox4.Height = pictureBox4.Height - 3;
-            pictureBox4.Width = pictureBox4.Width - 3;
-            lblBajas.Font = new Font("Microsoft Sans Serif", 10);
+            picBuscar.Height = picBuscar.Height - 3;
+            picBuscar.Width = picBuscar.Width - 3;
+            lblBuscar.Font = new Font("Microsoft Sans Serif", 10);
         }
 
-        private void picBInicio_Click(object sender, EventArgs e)
-        {
-            panelPrincipal.Controls.Clear();
-            //panelPrincipal.Controls.Add(panelSubPrincipal);
-        }
+      
 
         private void salirToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void picModuloReportes_Click(object sender, EventArgs e)
+        private void panelInicioClick()
         {
             panelPrincipal.Controls.Clear();
-            objReport = new FormReportes();
+            objInicio = new FrmInicio();
+            panelPrincipal.Controls.Add(objInicio);
+            panelPrincipal.AutoScroll = false;
+        }
+        private void panelBitacoraClick()
+        {
+            if (!panelPrincipal.Controls.Contains(objBit))
+            {
+                objBit = new FrmBitacora();
+                panelPrincipal.Controls.Clear();
+                panelPrincipal.Controls.Add(objBit);
+                panelPrincipal.AutoScroll = false;
+            }
+        }
+
+        private void panelReporteClick() 
+        {
+            panelPrincipal.Controls.Clear();
+            objReport = new FrmMenuReportes();
             panelPrincipal.Controls.Add(objReport);
-            panelPrincipal.AutoScroll = true;
         }
 
-        private void frmPrincipal_Load(object sender, EventArgs e)
+        private void panelBuscarClick() 
         {
-
+            panelPrincipal.Controls.Clear();
+            objBusc = new FrmMenuBuscar();
+            panelPrincipal.Controls.Add(objBusc);
+            panelPrincipal.AutoScroll = false;
         }
-
-        private void panelSubPrincipal_Paint(object sender, PaintEventArgs e)
+        private void lblInicio_Click(object sender, EventArgs e)
         {
-
+            panelInicioClick();
         }
 
-        private void panelPrincipal_Paint(object sender, PaintEventArgs e)
+        private void lblReportes_Click(object sender, EventArgs e)
         {
-
+            panelReporteClick();
         }
 
-       
+        private void lblBitacora_Click(object sender, EventArgs e)
+        {
+            panelBitacoraClick();
+        }
+
+        private void lblBuscar_Click(object sender, EventArgs e)
+        {
+            panelBuscarClick();
+        }
+
+
     }
 }

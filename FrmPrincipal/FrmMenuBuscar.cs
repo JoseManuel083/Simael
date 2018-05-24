@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace Simael
 {
-    public partial class FrmBusqueda : UserControl
+    public partial class FrmMenuBuscar : UserControl
     {
         private FrmBuscar objBuscar;
         private FrmAgregarRegistroInv objInv;
         private FrmBusquedaAvanzada objBusqA;
-        public FrmBusqueda()
+        public FrmMenuBuscar()
         {
             InitializeComponent();
             mostrarFormBuscar();

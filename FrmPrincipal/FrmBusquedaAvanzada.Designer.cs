@@ -139,6 +139,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.checkResguardante);
+            this.MaximizeBox = false;
             this.Name = "FrmBusquedaAvanzada";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmBusquedaAvanzada";

@@ -17,7 +17,8 @@ namespace Simael
         public FrmBitacora()
         {
             InitializeComponent();
-            mostrarFormAgregarBit();
+            //mostrarFormAgregarBit();
+            mostrarHistorialBitacora();
         }
 
         private void FrmBitacora_Load(object sender, EventArgs e)
