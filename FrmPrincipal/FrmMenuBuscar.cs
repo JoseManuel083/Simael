@@ -15,6 +15,7 @@ namespace Simael
         private FrmBuscar objBuscar;
         private FrmAgregarRegistroInv objInv;
         private FrmBusquedaAvanzada objBusqA;
+
         public FrmMenuBuscar()
         {
             InitializeComponent();
@@ -78,11 +79,19 @@ namespace Simael
         {
             if (e.Control == true && e.KeyCode == Keys.C)
             {
-                //busquedaAvanzada();
                 MessageBox.Show("comando aceptado");
             }
         }
 
+        private void exportarAExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            objBuscar = new FrmBuscar();
+        }
+
+        private void exportarDataGridExcel(DataGrid dgv) 
+        {
+            SaveFileDialog fichero = new SaveFileDialog();
+        }
      
     }
 }

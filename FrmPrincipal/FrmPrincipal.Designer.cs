@@ -29,15 +29,6 @@
         private void InitializeComponent()
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblInicio = new System.Windows.Forms.Label();
-            this.lblReportes = new System.Windows.Forms.Label();
-            this.lblBitacora = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.lblBuscar = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panelPrincipal = new System.Windows.Forms.Panel();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nuevoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -46,11 +37,20 @@
             this.restaurarBDToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salirToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblInicio = new System.Windows.Forms.Label();
+            this.lblReportes = new System.Windows.Forms.Label();
+            this.lblBitacora = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblBuscar = new System.Windows.Forms.Label();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.picBuscar = new System.Windows.Forms.PictureBox();
             this.picBitacora = new System.Windows.Forms.PictureBox();
             this.picModuloReportes = new System.Windows.Forms.PictureBox();
             this.picBInicio = new System.Windows.Forms.PictureBox();
+            this.panelPrincipal = new System.Windows.Forms.Panel();
             this.menuStrip1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -75,6 +75,66 @@
             this.menuStrip1.Size = new System.Drawing.Size(1046, 29);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
+            // 
+            // archivoToolStripMenuItem
+            // 
+            this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.nuevoToolStripMenuItem,
+            this.salirToolStripMenuItem});
+            this.archivoToolStripMenuItem.Image = global::Simael.Properties.Resources.file;
+            this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(91, 25);
+            this.archivoToolStripMenuItem.Text = "Archivo";
+            // 
+            // nuevoToolStripMenuItem
+            // 
+            this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
+            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
+            this.nuevoToolStripMenuItem.Text = "Opciones";
+            // 
+            // salirToolStripMenuItem
+            // 
+            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
+            this.salirToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
+            this.salirToolStripMenuItem.Text = "Salir";
+            // 
+            // respaldosToolStripMenuItem
+            // 
+            this.respaldosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.respaldarBDToolStripMenuItem,
+            this.restaurarBDToolStripMenuItem});
+            this.respaldosToolStripMenuItem.Image = global::Simael.Properties.Resources.backup;
+            this.respaldosToolStripMenuItem.Name = "respaldosToolStripMenuItem";
+            this.respaldosToolStripMenuItem.Size = new System.Drawing.Size(109, 25);
+            this.respaldosToolStripMenuItem.Text = "Respaldos";
+            // 
+            // respaldarBDToolStripMenuItem
+            // 
+            this.respaldarBDToolStripMenuItem.Image = global::Simael.Properties.Resources.Blue_Backup;
+            this.respaldarBDToolStripMenuItem.Name = "respaldarBDToolStripMenuItem";
+            this.respaldarBDToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
+            this.respaldarBDToolStripMenuItem.Text = "Respaldar información";
+            // 
+            // restaurarBDToolStripMenuItem
+            // 
+            this.restaurarBDToolStripMenuItem.Name = "restaurarBDToolStripMenuItem";
+            this.restaurarBDToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
+            this.restaurarBDToolStripMenuItem.Text = "Restaurar información";
+            // 
+            // ayudaToolStripMenuItem
+            // 
+            this.ayudaToolStripMenuItem.Image = global::Simael.Properties.Resources.help;
+            this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
+            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(82, 25);
+            this.ayudaToolStripMenuItem.Text = "Ayuda";
+            // 
+            // salirToolStripMenuItem1
+            // 
+            this.salirToolStripMenuItem1.Image = global::Simael.Properties.Resources.eliminar;
+            this.salirToolStripMenuItem1.Name = "salirToolStripMenuItem1";
+            this.salirToolStripMenuItem1.Size = new System.Drawing.Size(69, 25);
+            this.salirToolStripMenuItem1.Text = "Salir";
+            this.salirToolStripMenuItem1.Click += new System.EventHandler(this.salirToolStripMenuItem1_Click);
             // 
             // panel2
             // 
@@ -175,77 +235,6 @@
             this.panel1.Size = new System.Drawing.Size(168, 663);
             this.panel1.TabIndex = 1;
             // 
-            // panelPrincipal
-            // 
-            this.panelPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.panelPrincipal.BackColor = System.Drawing.SystemColors.ControlLightLight;
-            this.panelPrincipal.Location = new System.Drawing.Point(168, 29);
-            this.panelPrincipal.Name = "panelPrincipal";
-            this.panelPrincipal.Size = new System.Drawing.Size(878, 691);
-            this.panelPrincipal.TabIndex = 3;
-            // 
-            // archivoToolStripMenuItem
-            // 
-            this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nuevoToolStripMenuItem,
-            this.salirToolStripMenuItem});
-            this.archivoToolStripMenuItem.Image = global::Simael.Properties.Resources.file;
-            this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(91, 25);
-            this.archivoToolStripMenuItem.Text = "Archivo";
-            // 
-            // nuevoToolStripMenuItem
-            // 
-            this.nuevoToolStripMenuItem.Name = "nuevoToolStripMenuItem";
-            this.nuevoToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
-            this.nuevoToolStripMenuItem.Text = "Opciones";
-            // 
-            // salirToolStripMenuItem
-            // 
-            this.salirToolStripMenuItem.Name = "salirToolStripMenuItem";
-            this.salirToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
-            this.salirToolStripMenuItem.Text = "Salir";
-            // 
-            // respaldosToolStripMenuItem
-            // 
-            this.respaldosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.respaldarBDToolStripMenuItem,
-            this.restaurarBDToolStripMenuItem});
-            this.respaldosToolStripMenuItem.Image = global::Simael.Properties.Resources.backup;
-            this.respaldosToolStripMenuItem.Name = "respaldosToolStripMenuItem";
-            this.respaldosToolStripMenuItem.Size = new System.Drawing.Size(109, 25);
-            this.respaldosToolStripMenuItem.Text = "Respaldos";
-            // 
-            // respaldarBDToolStripMenuItem
-            // 
-            this.respaldarBDToolStripMenuItem.Image = global::Simael.Properties.Resources.Blue_Backup;
-            this.respaldarBDToolStripMenuItem.Name = "respaldarBDToolStripMenuItem";
-            this.respaldarBDToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
-            this.respaldarBDToolStripMenuItem.Text = "Respaldar información";
-            // 
-            // restaurarBDToolStripMenuItem
-            // 
-            this.restaurarBDToolStripMenuItem.Name = "restaurarBDToolStripMenuItem";
-            this.restaurarBDToolStripMenuItem.Size = new System.Drawing.Size(237, 26);
-            this.restaurarBDToolStripMenuItem.Text = "Restaurar información";
-            // 
-            // ayudaToolStripMenuItem
-            // 
-            this.ayudaToolStripMenuItem.Image = global::Simael.Properties.Resources.help;
-            this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
-            this.ayudaToolStripMenuItem.Size = new System.Drawing.Size(82, 25);
-            this.ayudaToolStripMenuItem.Text = "Ayuda";
-            // 
-            // salirToolStripMenuItem1
-            // 
-            this.salirToolStripMenuItem1.Image = global::Simael.Properties.Resources.eliminar;
-            this.salirToolStripMenuItem1.Name = "salirToolStripMenuItem1";
-            this.salirToolStripMenuItem1.Size = new System.Drawing.Size(69, 25);
-            this.salirToolStripMenuItem1.Text = "Salir";
-            this.salirToolStripMenuItem1.Click += new System.EventHandler(this.salirToolStripMenuItem1_Click);
-            // 
             // pictureBox5
             // 
             this.pictureBox5.Image = global::Simael.Properties.Resources.pendiente;
@@ -308,6 +297,17 @@
             this.picBInicio.MouseEnter += new System.EventHandler(this.picBInicio_MouseEnter);
             this.picBInicio.MouseLeave += new System.EventHandler(this.picBInicio_MouseLeave);
             // 
+            // panelPrincipal
+            // 
+            this.panelPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelPrincipal.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.panelPrincipal.Location = new System.Drawing.Point(168, 29);
+            this.panelPrincipal.Name = "panelPrincipal";
+            this.panelPrincipal.Size = new System.Drawing.Size(878, 691);
+            this.panelPrincipal.TabIndex = 3;
+            // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -323,6 +323,7 @@
             this.DoubleBuffered = true;
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
+            this.MaximizeBox = false;
             this.Name = "frmPrincipal";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "SIMAEL";

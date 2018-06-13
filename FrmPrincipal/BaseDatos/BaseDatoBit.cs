@@ -75,20 +75,20 @@ namespace Simael.BaseDatos
             {
                 if (abrirConexion())
                 {
-                    MySqlCommand cmd = new MySqlCommand("", conexion);
+                    MySqlCommand cmd = new MySqlCommand("agregarPeriferico", conexion);
                     cmd.CommandType = CommandType.StoredProcedure;
                     cmd.Parameters.AddWithValue("@ID",sicipo);
-                    cmd.Parameters.AddWithValue("@ID", categoria);
-                    cmd.Parameters.AddWithValue("@ID", tipo);
-                    cmd.Parameters.AddWithValue("@ID", marca);
-                    cmd.Parameters.AddWithValue("@ID", modelo);
-                    cmd.Parameters.AddWithValue("@ID", noserie);
-                    cmd.Parameters.AddWithValue("@ID", color);
-                    cmd.Parameters.AddWithValue("@ID", composicion);
-                    cmd.Parameters.AddWithValue("@ID", estadoFisico);
-                    cmd.Parameters.AddWithValue("@ID", resguardante);
-                    cmd.Parameters.AddWithValue("@ID", area);
-
+                    cmd.Parameters.AddWithValue("@Categoria", categoria);
+                    cmd.Parameters.AddWithValue("@Tipo", tipo);
+                    cmd.Parameters.AddWithValue("@Marca", marca);
+                    cmd.Parameters.AddWithValue("@Modelo", modelo);
+                    cmd.Parameters.AddWithValue("@NoSerie", noserie);
+                    cmd.Parameters.AddWithValue("@Color", color);
+                    cmd.Parameters.AddWithValue("@Composicion", composicion);
+                    cmd.Parameters.AddWithValue("@EstadoFisico", estadoFisico);
+                    cmd.Parameters.AddWithValue("@precio",precio);
+                    cmd.Parameters.AddWithValue("@resguardante", resguardante);
+                    cmd.Parameters.AddWithValue("@Inventario", area);
                     cmd.ExecuteNonQuery();
                     cerrarConexion();
                     return true;
@@ -102,6 +102,27 @@ namespace Simael.BaseDatos
                 return false;
             }
         }
+
+        private bool eliminarRegistroInventario(string parametro) 
+        {
+            try 
+            {
+                if (abrirConexion())
+                {
+                    string query = "delete from inventario";
+                    return true;
+                }
+                else
+                    return false;
+                
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine("Error {0}", ex);
+                return false;
+            }
+        }
+       
         public bool agregarRegistroBitacora(string folio,string sicipo,string equipo,string marca,string modelo, string noserie,
                                             string resguardante,string area,string problema,DateTime fecha) 
         {
@@ -344,6 +365,104 @@ namespace Simael.BaseDatos
 
         }
 
+        //Metodo para eliminar los equipos registrados en la tabla perifericos, la llamada se produce desde el modulo de busqueda.
+        public Boolean eliminarPerifericoInventario(string parametro) 
+        {
+            try 
+            {
+                if (abrirConexion()) 
+                {
+                    string query = "Delete from perifericos where ID = @parametro";
+                    MySqlCommand cmd = new MySqlCommand(query, conexion);
+                    cmd.Parameters.AddWithValue("@parametro", parametro);
+                    cmd.ExecuteNonQuery();
+                    cerrarConexion();
+                }
+              
+                return true;
+            }
+            catch(MySqlException ex)
+            {
+                MessageBox.Show("Ha ocurrido un error durante la ejecucion de la consulta "+ex, "Consulta de datos",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return false;
+            }
+        }
+
+
+        //Metodo para actualizar los datos de los equipos de la tabla perifericos desde el modulo de busqueda.
+        public bool editarPerifericoInventario(string Sicipo, string Categoria, string Tipo,string  Marca,
+                          string  Modelo, string NoSerie, string Color, string  Composicion, string  EstadoFisico,
+                          string Precio, string Resguardante, string Inventario) 
+        {
+            try 
+            {
+                string query = "update perifericos set ID = @ID, categoria = @categoria, tipo = @tipo, marca = @marca, modelo = @modelo,"
+                               + "noserie = @noserie, color = @color, composicion = @composicion, estadofisico = @estadofisico, precio = @precio,"
+                               + "resguardante = @resguardante, inventario = @inventario";
+
+                MySqlCommand cmd = new MySqlCommand(query,conexion);
+                cmd.Parameters.AddWithValue("@ID",Sicipo);
+                cmd.Parameters.AddWithValue("@categoria", Categoria);
+                cmd.Parameters.AddWithValue("@tipo", Tipo);
+                cmd.Parameters.AddWithValue("@marca", Marca);
+                cmd.Parameters.AddWithValue("@modelo", Modelo);
+                cmd.Parameters.AddWithValue("@noserie", NoSerie);
+                cmd.Parameters.AddWithValue("@color", Color);
+                cmd.Parameters.AddWithValue("@composicion", Composicion);
+                cmd.Parameters.AddWithValue("@estadofisico", EstadoFisico);
+                cmd.Parameters.AddWithValue("@precio", Precio);
+                cmd.Parameters.AddWithValue("@resguardante", Resguardante);
+                cmd.Parameters.AddWithValue("@inventario", Inventario);
+                cmd.ExecuteNonQuery();
+                
+                return true;
+
+            }catch(MySqlException ex)
+            {
+                return false;
+            }
+
+         }
+
+        // Método para eliminar los equipos registrados en la tabla computadoras y en la tabla perifericos, el equipo eliminado es el mismo
+        // registrado en ambas tablas, los equipos eliminados pertenecen a la categoria computadora
+        public bool eliminarPCInventario(string sicipo) 
+        {
+            try 
+            {
+                string query = "delete from periferico where ID = @sicipo; delete from computadora where ID = @sicipo";
+                MySqlCommand cmd = new MySqlCommand(query, conexion);
+                cmd.Parameters.AddWithValue("@sicipo",sicipo);
+                cmd.ExecuteNonQuery();
+                
+                return true;
+            }catch(MySqlException ex)
+            {
+                return false;
+            }
+        }
+
+        // Método para editar los datos de los equipos de computo registrados en las tablas computadoras y perifericos, estos equipos son los
+        //mismos en ambas tablas
+
+        public bool editarPCInventario(string ID, string categoria, string tipo, string marca, string noserie, string modelo, string ram,
+                                       string noprocesadores, string tipoprocesador, string velocidadprocesador, string nodiscosduros, string capaciadHdd,
+                                       string sistemaoperativo, string versionSO, string estadofisico, string precio ,string resguardante,
+                                       string inventario) 
+        {
+            try 
+            {
+                string query = "update pc set ID = @sicipo, categoria = @categoria, tipo = @tipo, marca = @marca, noserie = @noserie, modelo = @modelo, "
+                               +"ram = @ram, noprocesadores = @norpocesadores, tipoprocesador = @tipoprocesador, velocidadproc = @velocidadproc, "
+                               +"nodiscoduros = @nodiscoduros, capdiscoduro = @capdiscoduro, sistemaoperativo = @so, versionSO = @verSitemaOp, "
+                               +"estadofisico = @estadofisico, precio = @precio, resguardante = @resguardante, inventario = @inventario";
+
+                return true;
+            }catch(MySqlException ex)
+            {
+                return false;
+            }
+        }
         public bool editaRegistroBit(string idRegistroBit, string folio, string sicipo, string equipo, string marca,string modelo,
                                      string noserie,string resguardante, string area, string problema, DateTime fecha,string estado) 
         {

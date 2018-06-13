@@ -76,11 +76,23 @@
     <Compile Include="BaseDatos\BaseDatoBit.cs" />
     <Compile Include="Clases\Bitacora.cs" />
     <Compile Include="Clases\Reporte.cs" />
-    <Compile Include="FormDetalleRegistro.cs">
+    <Compile Include="FormBarraProgreso.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDetalleRegistro.Designer.cs">
-      <DependentUpon>FormDetalleRegistro.cs</DependentUpon>
+    <Compile Include="FormBarraProgreso.Designer.cs">
+      <DependentUpon>FormBarraProgreso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDetalleRegistroPC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDetalleRegistroPC.Designer.cs">
+      <DependentUpon>FormDetalleRegistroPC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormDetalleRegistroPeriferico.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormDetalleRegistroPeriferico.Designer.cs">
+      <DependentUpon>FormDetalleRegistroPeriferico.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmAgregarReportes.cs">
       <SubType>UserControl</SubType>
@@ -174,8 +186,14 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FormDetalleRegistro.resx">
-      <DependentUpon>FormDetalleRegistro.cs</DependentUpon>
+    <EmbeddedResource Include="FormBarraProgreso.resx">
+      <DependentUpon>FormBarraProgreso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDetalleRegistroPC.resx">
+      <DependentUpon>FormDetalleRegistroPC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FormDetalleRegistroPeriferico.resx">
+      <DependentUpon>FormDetalleRegistroPeriferico.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmAgregarReportes.resx">
       <DependentUpon>FrmAgregarReportes.cs</DependentUpon>
@@ -355,6 +373,35 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
