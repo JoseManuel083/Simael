@@ -19,7 +19,6 @@ namespace Simael
     {
         private FrmBitacora objBit;
         private FrmMenuReportes objReport;
-        private FrmBuscar objBuscar;
         private FrmMenuBuscar objBusc;
         private FrmInicio objInicio;
         public frmPrincipal()

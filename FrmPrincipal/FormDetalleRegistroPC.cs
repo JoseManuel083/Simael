@@ -7,11 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Simael.BaseDatos;
 namespace Simael
 {
     public partial class FormDetalleRegistroPC : Form
     {
+        private BaseDatoBit objBD;    
         public FormDetalleRegistroPC(List<string> equipo)
         {
             InitializeComponent();
@@ -37,12 +38,91 @@ namespace Simael
 
         private void FormDetalleRegistroPC_Load(object sender, EventArgs e)
         {
+            bloquearEdicionTextBox();
+        }
 
+        private void bloquearEdicionTextBox() 
+        {
+            foreach (Control control in panel1.Controls) 
+            {
+                if (control is TextBox) 
+                {
+                    ((TextBox)control).ReadOnly = true;
+                }
+            }
+            btnAceptar.Enabled = false;
+        }
+        private void activarEdicion() 
+        {
+            foreach (Control control in panel1.Controls) 
+            {
+                if (control is TextBox) 
+                {
+                    ((TextBox)control).ReadOnly = false;
+                }
+            }
+            txtSicipo.Focus();
+            btnAceptar.Enabled = true;
         }
 
         private void btnEditar_Click(object sender, EventArgs e)
         {
+            activarEdicion();
+        }
 
+        private void eliminarRegistro() 
+        {
+            objBD = new BaseDatoBit();
+            bool estado = objBD.eliminarPCInventario(txtSicipo.Text.Trim());
+
+            if (estado)
+            {
+                MessageBox.Show("El equipo ha sido eliminado de la base de datos correctamente", "Detalle registro",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            }
+            else 
+            {
+                MessageBox.Show("Ocurrio un error al intentar eliminar el equipo, por favor consulte con el administrador", "Detalle equipo", MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("Esta seguro que desea editar los datos del equipo?", "Detalle registro", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+            
+            if(resultado == DialogResult.Yes)    
+               editarRegistro();
+        }
+
+        private void editarRegistro() 
+        {
+            objBD = new BaseDatoBit();
+            bool estado = objBD.editarPCInventario(txtSicipo.Text.Trim(), txtCategoria.Text.Trim(), txtTipo.Text.Trim(), txtMarca.Text.Trim(),
+                                                   txtNoSerie.Text.Trim(), txtModelo.Text.Trim(), txtRam.Text.Trim(), txtNoProcesadores.Text.Trim(),
+                                                   txtTipoProcesador.Text.Trim(), txtVelocidadProcesador.Text.Trim(), txtNoHDD.Text.Trim(),
+                                                   txtCapacidadHDD.Text.Trim(), txtSO.Text.Trim(), txtVersionSO.Text.Trim(), txtEstadoFisico.Text.Trim(),
+                                                   txtPrecio.Text.Trim(), txtResguardante.Text.Trim(), txtInventario.Text.Trim());
+
+            if (estado)
+            {
+                DialogResult respuesta = MessageBox.Show("Los datos del equipo han sido actualizados", "Detalle equipo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (respuesta == DialogResult.OK)
+                    this.Close();
+            }
+            else 
+            {
+                MessageBox.Show("Ha ocurrido un error al intentar actualizar los datos del equipo, por favor consulte con el administrador", "Detalle equipo",
+                                MessageBoxButtons.OK,MessageBoxIcon.Error);
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            DialogResult resultado = MessageBox.Show("¿Esta seguro que desea eliminar los datos del equipo?", "Detalle registro", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
+
+            if (resultado == DialogResult.Yes)
+            {
+                eliminarRegistro();
+            }
         }
 
     }

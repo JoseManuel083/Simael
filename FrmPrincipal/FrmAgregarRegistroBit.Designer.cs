@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtFolio = new System.Windows.Forms.TextBox();
             this.txtSicipo = new System.Windows.Forms.TextBox();
             this.txtMarca = new System.Windows.Forms.TextBox();
@@ -52,11 +53,14 @@
             this.label11 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnBuscar = new System.Windows.Forms.Button();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // txtFolio
             // 
+            this.txtFolio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtFolio.Location = new System.Drawing.Point(430, 87);
             this.txtFolio.Name = "txtFolio";
             this.txtFolio.Size = new System.Drawing.Size(150, 20);
@@ -65,6 +69,7 @@
             // 
             // txtSicipo
             // 
+            this.txtSicipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSicipo.Location = new System.Drawing.Point(430, 140);
             this.txtSicipo.Name = "txtSicipo";
             this.txtSicipo.Size = new System.Drawing.Size(333, 20);
@@ -72,6 +77,7 @@
             // 
             // txtMarca
             // 
+            this.txtMarca.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMarca.Location = new System.Drawing.Point(430, 250);
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.Size = new System.Drawing.Size(333, 20);
@@ -79,6 +85,7 @@
             // 
             // txtArea
             // 
+            this.txtArea.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtArea.Location = new System.Drawing.Point(430, 452);
             this.txtArea.Name = "txtArea";
             this.txtArea.Size = new System.Drawing.Size(333, 20);
@@ -86,6 +93,7 @@
             // 
             // txtResguardante
             // 
+            this.txtResguardante.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtResguardante.Location = new System.Drawing.Point(430, 404);
             this.txtResguardante.Name = "txtResguardante";
             this.txtResguardante.Size = new System.Drawing.Size(333, 20);
@@ -93,6 +101,7 @@
             // 
             // txtNoSerie
             // 
+            this.txtNoSerie.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNoSerie.Location = new System.Drawing.Point(430, 357);
             this.txtNoSerie.Name = "txtNoSerie";
             this.txtNoSerie.Size = new System.Drawing.Size(333, 20);
@@ -100,6 +109,7 @@
             // 
             // txtModelo
             // 
+            this.txtModelo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtModelo.Location = new System.Drawing.Point(430, 304);
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.Size = new System.Drawing.Size(333, 20);
@@ -197,6 +207,7 @@
             // 
             // txtProblema
             // 
+            this.txtProblema.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtProblema.Location = new System.Drawing.Point(430, 504);
             this.txtProblema.Multiline = true;
             this.txtProblema.Name = "txtProblema";
@@ -235,6 +246,7 @@
             // 
             // txtTipo
             // 
+            this.txtTipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtTipo.Location = new System.Drawing.Point(430, 195);
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.Size = new System.Drawing.Size(333, 20);
@@ -270,11 +282,31 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.LightSeaGreen;
+            this.btnCancelar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelar.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.btnCancelar.Location = new System.Drawing.Point(578, 615);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(80, 35);
+            this.btnCancelar.TabIndex = 25;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Interval = 1000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // FrmAgregarRegistroBit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label11);
@@ -334,5 +366,7 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Timer timer1;
     }
 }

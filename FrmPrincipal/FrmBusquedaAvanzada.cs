@@ -28,7 +28,6 @@ namespace Simael
             objBD = new BaseDatoBit();
             tabla = new DataTable();
             tabla = objBD.busquedaAvanzada(categoria,txtPalabra.Text.Trim());
-            //MessageBox.Show(tabla.Rows.Count.ToString());
             objBuscar.llenarGridBusquedaAvanzada(tabla);
             objBuscar.Refresh();
             
@@ -75,7 +74,7 @@ namespace Simael
             if (!categoria.Equals(string.Empty) && !palabra.Equals(string.Empty))
                 generarBusqueda();
             else
-                MessageBox.Show("Por favor seleccione una casilla y escriba una palabra");
+                MessageBox.Show("Por favor seleccione una casilla y escriba una palabra","SIMAEL - Busqueda",MessageBoxButtons.OK,MessageBoxIcon.Warning);
         }
 
     }

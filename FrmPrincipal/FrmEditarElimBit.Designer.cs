@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmEditarElimBit));
             this.dgvBitacora = new System.Windows.Forms.DataGridView();
             this.colEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colValEstado = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -48,7 +50,20 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.picExcel = new System.Windows.Forms.PictureBox();
+            this.lblProgreso = new System.Windows.Forms.Label();
+            this.progresoExcel = new System.Windows.Forms.ProgressBar();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            this.gBoxBusqueda = new System.Windows.Forms.GroupBox();
+            this.btnAceptar = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblInicio = new System.Windows.Forms.Label();
+            this.dtFechaFinal = new System.Windows.Forms.DateTimePicker();
+            this.dtFechaInicial = new System.Windows.Forms.DateTimePicker();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBitacora)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picExcel)).BeginInit();
+            this.gBoxBusqueda.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvBitacora
@@ -84,7 +99,7 @@
             this.colIdBitacora});
             this.dgvBitacora.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvBitacora.EnableHeadersVisualStyles = false;
-            this.dgvBitacora.Location = new System.Drawing.Point(13, 65);
+            this.dgvBitacora.Location = new System.Drawing.Point(13, 116);
             this.dgvBitacora.Name = "dgvBitacora";
             this.dgvBitacora.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -97,7 +112,7 @@
             this.dgvBitacora.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvBitacora.RowHeadersVisible = false;
             this.dgvBitacora.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvBitacora.Size = new System.Drawing.Size(1152, 557);
+            this.dgvBitacora.Size = new System.Drawing.Size(1152, 506);
             this.dgvBitacora.TabIndex = 0;
             this.dgvBitacora.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBitacora_CellContentClick);
             this.dgvBitacora.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvBitacora_CellDoubleClick);
@@ -191,7 +206,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.LimeGreen;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel1.Location = new System.Drawing.Point(32, 27);
+            this.panel1.Location = new System.Drawing.Point(31, 13);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(26, 22);
             this.panel1.TabIndex = 1;
@@ -200,7 +215,7 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.Yellow;
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel2.Location = new System.Drawing.Point(257, 27);
+            this.panel2.Location = new System.Drawing.Point(30, 55);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(26, 22);
             this.panel2.TabIndex = 2;
@@ -209,7 +224,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(67, 33);
+            this.label1.Location = new System.Drawing.Point(63, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(121, 16);
             this.label1.TabIndex = 3;
@@ -219,11 +234,105 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(289, 33);
+            this.label2.Location = new System.Drawing.Point(62, 61);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(122, 16);
             this.label2.TabIndex = 4;
             this.label2.Text = "Equipos sin revisar";
+            // 
+            // picExcel
+            // 
+            this.picExcel.Image = ((System.Drawing.Image)(resources.GetObject("picExcel.Image")));
+            this.picExcel.Location = new System.Drawing.Point(1119, 67);
+            this.picExcel.Name = "picExcel";
+            this.picExcel.Size = new System.Drawing.Size(44, 40);
+            this.picExcel.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picExcel.TabIndex = 6;
+            this.picExcel.TabStop = false;
+            this.toolTip1.SetToolTip(this.picExcel, "Exportar registros a excel");
+            this.picExcel.Click += new System.EventHandler(this.picExcel_Click);
+            this.picExcel.MouseEnter += new System.EventHandler(this.picExcel_MouseEnter);
+            this.picExcel.MouseLeave += new System.EventHandler(this.picExcel_MouseLeave);
+            // 
+            // lblProgreso
+            // 
+            this.lblProgreso.AutoSize = true;
+            this.lblProgreso.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblProgreso.Location = new System.Drawing.Point(890, 78);
+            this.lblProgreso.Name = "lblProgreso";
+            this.lblProgreso.Size = new System.Drawing.Size(57, 15);
+            this.lblProgreso.TabIndex = 9;
+            this.lblProgreso.Text = "Progreso";
+            // 
+            // progresoExcel
+            // 
+            this.progresoExcel.Location = new System.Drawing.Point(962, 75);
+            this.progresoExcel.Name = "progresoExcel";
+            this.progresoExcel.Size = new System.Drawing.Size(151, 23);
+            this.progresoExcel.TabIndex = 8;
+            // 
+            // backgroundWorker1
+            // 
+            this.backgroundWorker1.WorkerReportsProgress = true;
+            this.backgroundWorker1.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker1_DoWork);
+            this.backgroundWorker1.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker1_ProgressChanged);
+            this.backgroundWorker1.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.backgroundWorker1_RunWorkerCompleted);
+            // 
+            // gBoxBusqueda
+            // 
+            this.gBoxBusqueda.Controls.Add(this.btnAceptar);
+            this.gBoxBusqueda.Controls.Add(this.label3);
+            this.gBoxBusqueda.Controls.Add(this.lblInicio);
+            this.gBoxBusqueda.Controls.Add(this.dtFechaFinal);
+            this.gBoxBusqueda.Controls.Add(this.dtFechaInicial);
+            this.gBoxBusqueda.Location = new System.Drawing.Point(311, 13);
+            this.gBoxBusqueda.Name = "gBoxBusqueda";
+            this.gBoxBusqueda.Size = new System.Drawing.Size(526, 91);
+            this.gBoxBusqueda.TabIndex = 10;
+            this.gBoxBusqueda.TabStop = false;
+            this.gBoxBusqueda.Text = "Busqueda avanzada";
+            // 
+            // btnAceptar
+            // 
+            this.btnAceptar.Location = new System.Drawing.Point(246, 62);
+            this.btnAceptar.Name = "btnAceptar";
+            this.btnAceptar.Size = new System.Drawing.Size(75, 23);
+            this.btnAceptar.TabIndex = 4;
+            this.btnAceptar.Text = "Aceptar";
+            this.btnAceptar.UseVisualStyleBackColor = true;
+            this.btnAceptar.Click += new System.EventHandler(this.btnAceptar_Click);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(277, 32);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(13, 13);
+            this.label3.TabIndex = 3;
+            this.label3.Text = "a";
+            // 
+            // lblInicio
+            // 
+            this.lblInicio.AutoSize = true;
+            this.lblInicio.Location = new System.Drawing.Point(21, 32);
+            this.lblInicio.Name = "lblInicio";
+            this.lblInicio.Size = new System.Drawing.Size(21, 13);
+            this.lblInicio.TabIndex = 2;
+            this.lblInicio.Text = "De";
+            // 
+            // dtFechaFinal
+            // 
+            this.dtFechaFinal.Location = new System.Drawing.Point(311, 26);
+            this.dtFechaFinal.Name = "dtFechaFinal";
+            this.dtFechaFinal.Size = new System.Drawing.Size(200, 20);
+            this.dtFechaFinal.TabIndex = 1;
+            // 
+            // dtFechaInicial
+            // 
+            this.dtFechaInicial.Location = new System.Drawing.Point(62, 26);
+            this.dtFechaInicial.Name = "dtFechaInicial";
+            this.dtFechaInicial.Size = new System.Drawing.Size(200, 20);
+            this.dtFechaInicial.TabIndex = 0;
             // 
             // FrmEditarElimBit
             // 
@@ -231,6 +340,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
+            this.Controls.Add(this.gBoxBusqueda);
+            this.Controls.Add(this.lblProgreso);
+            this.Controls.Add(this.progresoExcel);
+            this.Controls.Add(this.picExcel);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.panel2);
@@ -240,6 +353,9 @@
             this.Size = new System.Drawing.Size(1178, 653);
             this.Load += new System.EventHandler(this.frmEditarElimBit_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvBitacora)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picExcel)).EndInit();
+            this.gBoxBusqueda.ResumeLayout(false);
+            this.gBoxBusqueda.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -265,5 +381,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colProblema;
         private System.Windows.Forms.DataGridViewTextBoxColumn colFecha;
         private System.Windows.Forms.DataGridViewTextBoxColumn colIdBitacora;
+        private System.Windows.Forms.PictureBox picExcel;
+        private System.Windows.Forms.Label lblProgreso;
+        private System.Windows.Forms.ProgressBar progresoExcel;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.GroupBox gBoxBusqueda;
+        private System.Windows.Forms.Button btnAceptar;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblInicio;
+        private System.Windows.Forms.DateTimePicker dtFechaFinal;
+        private System.Windows.Forms.DateTimePicker dtFechaInicial;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

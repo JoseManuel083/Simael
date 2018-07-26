@@ -68,6 +68,31 @@ namespace Simael.BaseDatos
             }
         }
 
+        public bool agregarComputadoraInventario(string ID, string categoria, string tipo, string marca, string noserie, string modelo, string ram,
+                                       string noprocesadores, string tipoprocesador, string velocidadprocesador, string nodiscosduros, string capaciadHdd,
+                                       string sistemaoperativo, string versionSO, string estadofisico, string precio, string resguardante,
+                                       string inventario) 
+        {
+            try 
+            {
+                string query = "insert into computadora values();";
+                MySqlCommand cmd = new MySqlCommand(query,conexion);
+                
+                abrirConexion();
+
+
+                return true;
+            }catch(MySqlException ex)
+            {
+                MessageBox.Show("Ha ocurrido un error en la Base de datos: "+ex);
+                return false;
+            }
+            
+        }
+        /*
+         * Agrega un nuevo equipo (teclado,nobreak,mouse,pantalla,regulador,impresora) al inventario, usa el procedimiento almacenado
+         * agregarPeriferico para efectuar esta operacion.
+         */
         public bool agregarPerifericoInventario(string sicipo, string categoria, string tipo, string marca, string modelo, string noserie,
             string color, string composicion, string estadoFisico, string precio, string resguardante,string area) 
         {
@@ -103,25 +128,7 @@ namespace Simael.BaseDatos
             }
         }
 
-        private bool eliminarRegistroInventario(string parametro) 
-        {
-            try 
-            {
-                if (abrirConexion())
-                {
-                    string query = "delete from inventario";
-                    return true;
-                }
-                else
-                    return false;
-                
-            }
-            catch(Exception ex)
-            {
-                Console.WriteLine("Error {0}", ex);
-                return false;
-            }
-        }
+        
        
         public bool agregarRegistroBitacora(string folio,string sicipo,string equipo,string marca,string modelo, string noserie,
                                             string resguardante,string area,string problema,DateTime fecha) 
@@ -154,22 +161,23 @@ namespace Simael.BaseDatos
                 }
             }catch(MySqlException ex)
             {
-                Console.WriteLine("Error {0}",ex);
+                MessageBox.Show("Error en la base de datos: "+ex);
                 return false;
             }
             
         }
-
+        //Metodo que obtiene un registro de la bitacora, como parametro recibe una cadena que representa el equipo 
+        //en especifico a buscar, para retornarlo en un arreglo con 6 campos
         public string [] obtenerRegistroBitacora(string param) 
         {
-            string []registro =  new String[6];
-            string query = "select id,categoria,marca,modelo,noserie,resguardante from perifericos where inventario like @parametro";
+            string []registro =  new String[7];
+            string query = "select id,categoria,marca,modelo,noserie,resguardante,inventario from perifericos where ID = @parametro";
             try 
             {
                 if(abrirConexion())
                 {
                     MySqlCommand cmd = new MySqlCommand(query, conexion);
-                    cmd.Parameters.AddWithValue("@parametro", "%" + param + "%");
+                    cmd.Parameters.AddWithValue("@parametro",param);
                     MySqlDataReader reader = cmd.ExecuteReader();
 
                     while(reader.Read())
@@ -180,6 +188,7 @@ namespace Simael.BaseDatos
                         registro[3] = Convert.ToString(reader["modelo"]);
                         registro[4] = Convert.ToString(reader["noserie"]);
                         registro[5] = Convert.ToString(reader["resguardante"]);
+                        registro[6] = Convert.ToString(reader["inventario"]);
                     }
                     cerrarConexion();
                 }
@@ -225,7 +234,6 @@ namespace Simael.BaseDatos
                     adap.Fill(dt);
                     cmd.ExecuteNonQuery();
                     cerrarConexion();
-                    //MessageBox.Show("Se vuelve a ejecutar");
                 }
                 return dt;
             }catch(DataException ex)
@@ -324,7 +332,6 @@ namespace Simael.BaseDatos
                 if(abrirConexion())
                 {
                     MySqlCommand cmd = new MySqlCommand(query,conexion);
-                   // cmd.Parameters.AddWithValue("@categoria", categoria);
                     cmd.Parameters.AddWithValue("@palabra", "%" + palabra + "%");
                     MySqlDataAdapter adap = new MySqlDataAdapter(cmd);
                     adap.Fill(table);
@@ -396,9 +403,10 @@ namespace Simael.BaseDatos
         {
             try 
             {
+                abrirConexion();
                 string query = "update perifericos set ID = @ID, categoria = @categoria, tipo = @tipo, marca = @marca, modelo = @modelo,"
                                + "noserie = @noserie, color = @color, composicion = @composicion, estadofisico = @estadofisico, precio = @precio,"
-                               + "resguardante = @resguardante, inventario = @inventario";
+                               + "resguardante = @resguardante, inventario = @inventario WHERE ID = @ID";
 
                 MySqlCommand cmd = new MySqlCommand(query,conexion);
                 cmd.Parameters.AddWithValue("@ID",Sicipo);
@@ -414,7 +422,7 @@ namespace Simael.BaseDatos
                 cmd.Parameters.AddWithValue("@resguardante", Resguardante);
                 cmd.Parameters.AddWithValue("@inventario", Inventario);
                 cmd.ExecuteNonQuery();
-                
+                cerrarConexion();
                 return true;
 
             }catch(MySqlException ex)
@@ -452,16 +460,66 @@ namespace Simael.BaseDatos
         {
             try 
             {
-                string query = "update pc set ID = @sicipo, categoria = @categoria, tipo = @tipo, marca = @marca, noserie = @noserie, modelo = @modelo, "
-                               +"ram = @ram, noprocesadores = @norpocesadores, tipoprocesador = @tipoprocesador, velocidadproc = @velocidadproc, "
-                               +"nodiscoduros = @nodiscoduros, capdiscoduro = @capdiscoduro, sistemaoperativo = @so, versionSO = @verSitemaOp, "
-                               +"estadofisico = @estadofisico, precio = @precio, resguardante = @resguardante, inventario = @inventario";
-
+                abrirConexion();
+                string query = "update computadora set ID = @sicipo, categoria = @categoria, tipo = @tipo, marca = @marca, noserie = @noserie, modelo = @modelo, "
+                               +"ram = @ram, noprocesadores = @noprocesadores, tipoprocesador = @tipoprocesador, velocidadproc = @velocidadproc, "
+                               +"nodiscoduros = @nodiscoduros, capdiscoduro = @capdiscoduro, sistemaoperativo = @so, versionSO = @verSistemaOp, "
+                               +"estadofisico = @estadofisico, precio = @precio, resguardante = @resguardante, inventario = @inventario WHERE ID = @sicipo;"
+                               +"update perifericos set ID = @sicipo, categoria = @categoria, tipo = @tipo, marca = @marca, modelo = @modelo,noserie = @noserie,"
+                               +"estadofisico = @estadofisico, precio = @precio, resguardante = @resguardante, inventario = @inventario WHERE ID = @sicipo ";
+                
+                MySqlCommand cmd = new MySqlCommand(query,conexion);
+                cmd.Parameters.AddWithValue("@sicipo",ID);
+                cmd.Parameters.AddWithValue("@categoria",categoria);
+                cmd.Parameters.AddWithValue("@tipo",tipo);
+                cmd.Parameters.AddWithValue("@marca",marca);
+                cmd.Parameters.AddWithValue("@noserie",noserie);
+                cmd.Parameters.AddWithValue("@modelo",modelo);
+                cmd.Parameters.AddWithValue("@ram",ram);
+                cmd.Parameters.AddWithValue("@noprocesadores",noprocesadores);
+                cmd.Parameters.AddWithValue("@tipoprocesador",tipoprocesador);
+                cmd.Parameters.AddWithValue("@velocidadproc",velocidadprocesador);
+                cmd.Parameters.AddWithValue("@nodiscoduros",nodiscosduros);
+                cmd.Parameters.AddWithValue("@capdiscoduro",capaciadHdd);
+                cmd.Parameters.AddWithValue("@so",sistemaoperativo);
+                cmd.Parameters.AddWithValue("@verSistemaOp",versionSO);
+                cmd.Parameters.AddWithValue("@estadofisico",estadofisico);
+                cmd.Parameters.AddWithValue("@precio",precio);
+                cmd.Parameters.AddWithValue("@resguardante", resguardante);
+                cmd.Parameters.AddWithValue("@inventario", inventario);
+                cmd.ExecuteNonQuery();
+                cerrarConexion();
                 return true;
             }catch(MySqlException ex)
             {
+                MessageBox.Show("ERROR: "+ex);
                 return false;
             }
+        }
+
+        public DataTable busquedaAvanzadaBitacora(DateTime primeraFecha, DateTime segundaFecha) 
+        {
+            DataTable dt = new DataTable();
+            try 
+            {
+                if (abrirConexion())
+                {
+                    string query = "select * from bitacora where fecha between @fechaUno and @fechaDos";
+                    MySqlCommand cmd = new MySqlCommand(query, conexion);
+                    cmd.Parameters.AddWithValue("@fechaUno", primeraFecha);
+                    cmd.Parameters.AddWithValue("@fechaDos", segundaFecha);
+                    MySqlDataAdapter adaptador = new MySqlDataAdapter(cmd);
+                    adaptador.Fill(dt);
+                    cmd.ExecuteNonQuery();
+                }
+                return dt;
+
+            }catch(MySqlException ex)
+            {
+                MessageBox.Show("ERROR: "+ex);
+                return dt;
+            }
+            
         }
         public bool editaRegistroBit(string idRegistroBit, string folio, string sicipo, string equipo, string marca,string modelo,
                                      string noserie,string resguardante, string area, string problema, DateTime fecha,string estado) 

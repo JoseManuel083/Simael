@@ -27,6 +27,7 @@ namespace Simael
         private int estado;
         private DateTime fecha;
         DataTable tabla;
+        private SaveFileDialog fichero;
         public FrmEditarElimBit()
         {
             InitializeComponent();
@@ -58,6 +59,7 @@ namespace Simael
             tabla = new DataTable();
             tabla = objBD.obtenerRegistrosBit();
             dgvBitacora.DataSource = tabla;
+            pintarColoresCeldasGrid();
         }
 
         private void establecerConfDgv() 
@@ -92,11 +94,6 @@ namespace Simael
             fecha = Convert.ToDateTime(dgvBitacora.CurrentRow.Cells[11].Value.ToString());
             idBitacora = dgvBitacora.CurrentRow.Cells[12].Value.ToString();
         }
-        //public void actualizarGridV() 
-        //{
-        //    objBD = new BaseDatoBit();
-        //    dgvBitacora.DataSource = objBD.obtenerRegistrosBit();
-        //}
 
         private void mostrarDatos() 
         {
@@ -106,6 +103,7 @@ namespace Simael
         }
         private void frmEditarElimBit_Load(object sender, EventArgs e)
         {
+            ocultalMostrarProgressBar(false);
         }
 
         protected override void OnLoad(EventArgs e)
@@ -114,6 +112,21 @@ namespace Simael
             pintarColoresCeldasGrid();
         }
 
+        private void ocultalMostrarProgressBar(bool estado) 
+        {
+            if (estado)
+            {
+                lblProgreso.Visible = estado;
+                progresoExcel.Visible = estado;
+            }
+            else 
+            {
+                lblProgreso.Visible = estado;
+                progresoExcel.Visible = estado;
+            }
+            
+
+        }
 
         //Este metodo pinta la primera columna del datagrid en su respectivo color
         private void pintarColoresCeldasGrid() 
@@ -144,5 +157,127 @@ namespace Simael
         {
            
         }
+
+        private void exportarDatosExcel() 
+        {
+            try
+            {
+                fichero = new SaveFileDialog();
+                fichero.Filter = "Excel (*.xls)|*.xls";
+
+                if (fichero.ShowDialog() == DialogResult.OK)
+                {
+                    backgroundWorker1.RunWorkerAsync();
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString(), "Exportar", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void backgroundWorker1_DoWork(object sender, DoWorkEventArgs e)
+        {
+            Microsoft.Office.Interop.Excel.Application aplicacion;
+            Microsoft.Office.Interop.Excel.Workbook libroExcel;
+            Microsoft.Office.Interop.Excel.Worksheet hojaExcel;
+            aplicacion = new Microsoft.Office.Interop.Excel.Application();
+            libroExcel = aplicacion.Workbooks.Add();
+            hojaExcel = (Microsoft.Office.Interop.Excel.Worksheet)libroExcel.Worksheets.get_Item(1);
+
+            int contador = 0;
+            
+            for (int i = 0; i < dgvBitacora.Rows.Count; i++)
+            {
+                for (int j = 2; j < dgvBitacora.Columns.Count-1; j++)
+                {
+                    hojaExcel.Cells[1, j] = dgvBitacora.Columns[j].HeaderText.ToString();
+                    hojaExcel.Cells[i + 2, j] = dgvBitacora.Rows[i].Cells[j].Value.ToString();
+                }
+
+                contador = ((i + 1) * 100 / dgvBitacora.Rows.Count);
+                backgroundWorker1.ReportProgress(contador);
+            }
+
+            libroExcel.SaveAs(fichero.FileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal);
+            libroExcel.Close(true);
+            aplicacion.Quit();
+        }
+
+        private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            ocultalMostrarProgressBar(true);
+            progresoExcel.Value = e.ProgressPercentage;
+        }
+
+        private void backgroundWorker1_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            if (e.Cancelled)
+            {
+                MessageBox.Show("La exportacion de datos ha sido cancelada", "SIMAEL - Inventario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            else if (e.Error != null)
+            {
+                MessageBox.Show("Ha ocurrido un error al guardar los datos", "SIMAEL - Inventario", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("Datos guardados correctamente", "SIMAEL - Inventario", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ocultalMostrarProgressBar(false);
+            }
+        }
+
+        private void picExcel_Click(object sender, EventArgs e)
+        {
+            exportarDatosExcel();
+        }
+
+        private void picExcel_MouseEnter(object sender, EventArgs e)
+        {
+            picExcel.Width = picExcel.Width + 3;
+            picExcel.Height = picExcel.Height + 3;
+        }
+
+        private void picExcel_MouseLeave(object sender, EventArgs e)
+        {
+            picExcel.Width = picExcel.Width - 3;
+            picExcel.Height = picExcel.Height - 3;
+        }
+
+        //Boton para iniciar la busqueda avanzada
+        private void btnAceptar_Click(object sender, EventArgs e)
+        {
+            if (dtFechaFinal.Value <= dtFechaInicial.Value)
+            {
+                MessageBox.Show("La fecha de inicio debe ser menor que la fecha final", "Simael - Bitacora",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+            }
+            else 
+            {
+                iniciarBusquedaAvanzada();
+            }
+        }
+
+        private void iniciarBusquedaAvanzada() 
+        {
+            objBD = new BaseDatoBit();
+            DateTime hora = DateTime.Parse("6:00:00 am");
+            DateTime fechaInicio = new DateTime(dtFechaInicial.Value.Year,dtFechaInicial.Value.Month,dtFechaInicial.Value.Day,
+                                          hora.Hour,hora.Minute,hora.Second);
+            DataTable tb = new DataTable();
+            tb = objBD.busquedaAvanzadaBitacora(fechaInicio, dtFechaFinal.Value);
+            
+            if (tb.Rows.Count > 0)
+            {
+                dgvBitacora.DataSource = tb;
+            }
+            else 
+            {
+                MessageBox.Show("No se encontraron resultados para la busqueda", "Simael - Bitacora", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            
+        }
+
+     
     }
 }

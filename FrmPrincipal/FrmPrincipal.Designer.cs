@@ -302,6 +302,7 @@
             this.panelPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelPrincipal.AutoSize = true;
             this.panelPrincipal.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.panelPrincipal.Location = new System.Drawing.Point(168, 29);
             this.panelPrincipal.Name = "panelPrincipal";

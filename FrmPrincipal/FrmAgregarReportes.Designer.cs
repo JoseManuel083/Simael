@@ -154,6 +154,7 @@
             // 
             // txtHdd
             // 
+            this.txtHdd.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtHdd.Location = new System.Drawing.Point(670, 389);
             this.txtHdd.Name = "txtHdd";
             this.txtHdd.Size = new System.Drawing.Size(294, 20);
@@ -161,6 +162,7 @@
             // 
             // txtRam
             // 
+            this.txtRam.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtRam.Location = new System.Drawing.Point(670, 345);
             this.txtRam.Name = "txtRam";
             this.txtRam.Size = new System.Drawing.Size(294, 20);
@@ -168,6 +170,7 @@
             // 
             // txtProcesador
             // 
+            this.txtProcesador.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtProcesador.Location = new System.Drawing.Point(670, 301);
             this.txtProcesador.Name = "txtProcesador";
             this.txtProcesador.Size = new System.Drawing.Size(294, 20);
@@ -175,6 +178,7 @@
             // 
             // txtTipo
             // 
+            this.txtTipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtTipo.Location = new System.Drawing.Point(670, 255);
             this.txtTipo.Name = "txtTipo";
             this.txtTipo.Size = new System.Drawing.Size(294, 20);
@@ -182,6 +186,7 @@
             // 
             // txtOtros
             // 
+            this.txtOtros.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtOtros.Location = new System.Drawing.Point(135, 392);
             this.txtOtros.Name = "txtOtros";
             this.txtOtros.Size = new System.Drawing.Size(294, 20);
@@ -189,6 +194,7 @@
             // 
             // txtNoSerie
             // 
+            this.txtNoSerie.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtNoSerie.Location = new System.Drawing.Point(135, 348);
             this.txtNoSerie.Name = "txtNoSerie";
             this.txtNoSerie.Size = new System.Drawing.Size(294, 20);
@@ -196,6 +202,7 @@
             // 
             // txtModelo
             // 
+            this.txtModelo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtModelo.Location = new System.Drawing.Point(135, 304);
             this.txtModelo.Name = "txtModelo";
             this.txtModelo.Size = new System.Drawing.Size(294, 20);
@@ -203,6 +210,7 @@
             // 
             // txtMarca
             // 
+            this.txtMarca.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtMarca.Location = new System.Drawing.Point(135, 258);
             this.txtMarca.Name = "txtMarca";
             this.txtMarca.Size = new System.Drawing.Size(294, 20);
@@ -399,6 +407,7 @@
             // 
             // txtCausa
             // 
+            this.txtCausa.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCausa.Location = new System.Drawing.Point(135, 630);
             this.txtCausa.Multiline = true;
             this.txtCausa.Name = "txtCausa";
@@ -416,6 +425,7 @@
             // 
             // txtReparacion
             // 
+            this.txtReparacion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtReparacion.Location = new System.Drawing.Point(670, 548);
             this.txtReparacion.Multiline = true;
             this.txtReparacion.Name = "txtReparacion";
@@ -424,6 +434,7 @@
             // 
             // txtSolucion
             // 
+            this.txtSolucion.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSolucion.Location = new System.Drawing.Point(670, 474);
             this.txtSolucion.Multiline = true;
             this.txtSolucion.Name = "txtSolucion";
@@ -432,6 +443,7 @@
             // 
             // txtDiagnostico
             // 
+            this.txtDiagnostico.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtDiagnostico.Location = new System.Drawing.Point(135, 548);
             this.txtDiagnostico.Multiline = true;
             this.txtDiagnostico.Name = "txtDiagnostico";
@@ -440,6 +452,7 @@
             // 
             // txtFalla
             // 
+            this.txtFalla.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtFalla.Location = new System.Drawing.Point(135, 474);
             this.txtFalla.Multiline = true;
             this.txtFalla.Name = "txtFalla";
@@ -458,6 +471,7 @@
             // 
             // txtID
             // 
+            this.txtID.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtID.Location = new System.Drawing.Point(488, 14);
             this.txtID.Name = "txtID";
             this.txtID.Size = new System.Drawing.Size(157, 20);
@@ -465,6 +479,7 @@
             // 
             // txtCosto
             // 
+            this.txtCosto.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtCosto.Location = new System.Drawing.Point(670, 202);
             this.txtCosto.Name = "txtCosto";
             this.txtCosto.Size = new System.Drawing.Size(294, 20);
@@ -472,6 +487,7 @@
             // 
             // txtSoi
             // 
+            this.txtSoi.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSoi.Location = new System.Drawing.Point(670, 117);
             this.txtSoi.Name = "txtSoi";
             this.txtSoi.Size = new System.Drawing.Size(294, 20);
@@ -479,6 +495,7 @@
             // 
             // txtSicipo
             // 
+            this.txtSicipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtSicipo.Location = new System.Drawing.Point(670, 78);
             this.txtSicipo.Name = "txtSicipo";
             this.txtSicipo.Size = new System.Drawing.Size(294, 20);
@@ -486,6 +503,7 @@
             // 
             // txtEmail
             // 
+            this.txtEmail.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtEmail.Location = new System.Drawing.Point(135, 198);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(294, 20);
@@ -493,6 +511,7 @@
             // 
             // txtTelefono
             // 
+            this.txtTelefono.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtTelefono.Location = new System.Drawing.Point(135, 157);
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(294, 20);
@@ -500,6 +519,7 @@
             // 
             // txtArea
             // 
+            this.txtArea.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtArea.Location = new System.Drawing.Point(135, 113);
             this.txtArea.Name = "txtArea";
             this.txtArea.Size = new System.Drawing.Size(294, 20);
@@ -507,6 +527,7 @@
             // 
             // txtResguardante
             // 
+            this.txtResguardante.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
             this.txtResguardante.Location = new System.Drawing.Point(135, 74);
             this.txtResguardante.Name = "txtResguardante";
             this.txtResguardante.Size = new System.Drawing.Size(294, 20);

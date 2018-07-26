@@ -77,6 +77,7 @@
             // 
             // panelBusqueda
             // 
+            this.panelBusqueda.AutoSize = true;
             this.panelBusqueda.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelBusqueda.Location = new System.Drawing.Point(0, 28);
             this.panelBusqueda.Name = "panelBusqueda";
@@ -88,6 +89,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.Controls.Add(this.panelBusqueda);
             this.Controls.Add(this.menuStrip1);
             this.Name = "FrmMenuBuscar";

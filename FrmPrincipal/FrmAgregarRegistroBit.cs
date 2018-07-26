@@ -80,15 +80,39 @@ namespace Simael
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (validarCamposVacios())
+            if (buscarRegistrosRepetidos())
             {
-                agregarRegistro();
+               DialogResult resultado = MessageBox.Show("Registro duplicado, desea registrarlo de todas formas?","Agregar registro", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+               
+                if(resultado == DialogResult.OK)
+                {
+                   agregarRegistro();
+                }
             }
             else 
             {
-                MessageBox.Show("Existen campos sin datos , por favor ingrese datos","Agregar registro",MessageBoxButtons.OK,MessageBoxIcon.Warning);
+                if (validarCamposVacios())
+                {
+                    agregarRegistro();
+                }
+                else
+                {
+                    MessageBox.Show("Existen campos sin datos , por favor ingrese datos", "Agregar registro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
             }
             
+            
+        }
+
+        private bool buscarRegistrosRepetidos() 
+        {
+            objBD = new BaseDatoBit();
+            DataTable resultado = objBD.buscarRegistroBit(txtFolio.Text.Trim());
+            if (resultado.Rows.Count>0)
+            {
+                return true;
+            }
+            return false;
         }
 
         private void buscarEquipo() 
@@ -126,6 +150,7 @@ namespace Simael
             txtModelo.Text = datos[3];
             txtNoSerie.Text = datos[4];
             txtResguardante.Text = datos[5];
+            txtArea.Text =  datos[6];
         }
 
         private void FrmAgregarRegistroBit_Load(object sender, EventArgs e)
@@ -145,6 +170,18 @@ namespace Simael
                 buscarEquipo();
             }
         }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            limpiarCampos();
+        }
+
+        //Actualiza la hora del formulario mientras se ejecuta el programa, resuelve el problema de hora estatica
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            dateFecha.Value = DateTime.Now;
+        }
+
 
     }
 }
