@@ -84,7 +84,7 @@ namespace Simael
             {
                DialogResult resultado = MessageBox.Show("Registro duplicado, desea registrarlo de todas formas?","Agregar registro", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
                
-                if(resultado == DialogResult.OK)
+                if(resultado == DialogResult.Yes)
                 {
                    agregarRegistro();
                 }

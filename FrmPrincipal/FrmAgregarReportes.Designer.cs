@@ -150,7 +150,6 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1063, 1162);
             this.panel1.TabIndex = 43;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // txtHdd
             // 
@@ -237,7 +236,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(545, 265);
+            this.label6.Location = new System.Drawing.Point(545, 255);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(28, 13);
             this.label6.TabIndex = 79;
@@ -659,7 +658,7 @@
             this.Controls.Add(this.panel1);
             this.Name = "FrmAgregarReportes";
             this.Size = new System.Drawing.Size(1120, 1200);
-            this.Load += new System.EventHandler(this.FormReportes_Load);
+            this.Load += new System.EventHandler(this.FrmAgregarReportes_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
