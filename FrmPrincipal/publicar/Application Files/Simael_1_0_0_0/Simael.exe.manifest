@@ -1,0 +1,70 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<asmv1:assembly xsi:schemaLocation="urn:schemas-microsoft-com:asm.v1 assembly.adaptive.xsd" manifestVersion="1.0" xmlns:asmv1="urn:schemas-microsoft-com:asm.v1" xmlns="urn:schemas-microsoft-com:asm.v2" xmlns:asmv2="urn:schemas-microsoft-com:asm.v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:co.v1="urn:schemas-microsoft-com:clickonce.v1" xmlns:asmv3="urn:schemas-microsoft-com:asm.v3" xmlns:dsig="http://www.w3.org/2000/09/xmldsig#" xmlns:co.v2="urn:schemas-microsoft-com:clickonce.v2">
+  <asmv1:assemblyIdentity name="Simael.exe" version="1.0.0.0" publicKeyToken="43946cb5c42aacb0" language="neutral" processorArchitecture="msil" type="win32" />
+  <application />
+  <entryPoint>
+    <assemblyIdentity name="Simael" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <commandLine file="Simael.exe" parameters="" />
+  </entryPoint>
+  <trustInfo>
+    <security>
+      <applicationRequestMinimum>
+        <PermissionSet Unrestricted="true" ID="Custom" SameSite="site" />
+        <defaultAssemblyRequest permissionSetReference="Custom" />
+      </applicationRequestMinimum>
+      <requestedPrivileges xmlns="urn:schemas-microsoft-com:asm.v3">
+        <!--
+          Opciones del manifiesto de Control de cuentas de usuario
+          Si desea cambiar el nivel de Control de cuentas de usuario de Windows, reemplace el 
+          nodo requestedExecutionLevel por alguno de los siguientes.
+
+        <requestedExecutionLevel  level="asInvoker" uiAccess="false" />
+        <requestedExecutionLevel  level="requireAdministrator" uiAccess="false" />
+        <requestedExecutionLevel  level="highestAvailable" uiAccess="false" />
+
+         Si desea usar la virtualización de archivos y del Registro para la 
+         compatibilidad con versiones anteriores, elimine el nodo requestedExecutionLevel.
+    -->
+        <requestedExecutionLevel level="asInvoker" uiAccess="false" />
+      </requestedPrivileges>
+    </security>
+  </trustInfo>
+  <dependency>
+    <dependentOS>
+      <osVersionInfo>
+        <os majorVersion="5" minorVersion="1" buildNumber="2600" servicePackMajor="0" />
+      </osVersionInfo>
+    </dependentOS>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="Microsoft.Windows.CommonLanguageRuntime" version="4.0.30319.0" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="preRequisite" allowDelayedBinding="true">
+      <assemblyIdentity name="MySql.Data" version="6.9.6.0" publicKeyToken="C5687FC88969C44D" language="neutral" processorArchitecture="msil" />
+    </dependentAssembly>
+  </dependency>
+  <dependency>
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Simael.exe" size="1288192">
+      <assemblyIdentity name="Simael" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <hash>
+        <dsig:Transforms>
+          <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+        </dsig:Transforms>
+        <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+        <dsig:DigestValue>YVXrKCktDIkotj/oUwuT3fx/I7In5BKQ5gAFaiiNhPQ=</dsig:DigestValue>
+      </hash>
+    </dependentAssembly>
+  </dependency>
+  <file name="Simael.exe.config" size="187">
+    <hash>
+      <dsig:Transforms>
+        <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
+      </dsig:Transforms>
+      <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
+      <dsig:DigestValue>xm4bo26HQ0LNVwz1vdPYtzhkpMnp2AI5i+f0b+OahTI=</dsig:DigestValue>
+    </hash>
+  </file>
+<publisherIdentity name="CN=MANE\k-re0" issuerKeyHash="9faf0cb7c613932b9a1086ff94eb9d916dc07d96" /><Signature Id="StrongNameSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>Fh1m8WoUqa1klLQ0x8uM+mfyAe+DSXGymYDT2d/4MSE=</DigestValue></Reference></SignedInfo><SignatureValue>Crs1FwZ+F3uIVAzjLWkExDIewtF0RzBTCLQRdG0c2MXzCRpJ055GCQQ8M0MbX39/2h+NG1zzPLS5mcyacGCAMEiCikQxIxC9zDEbmJiNNA6lVdoNTEZM7oSevhTVsfHftd0YqEpfqfltao76AkE3YTEYjqoHUpBJ+stbZNdWMWE=</SignatureValue><KeyInfo Id="StrongNameKeyInfo"><KeyValue><RSAKeyValue><Modulus>t7TBMz3n8cdfVSkKa3zQo4n4WdSVcBlcKDZ/o04UXp8COtBbN6Ep5WVqlqSVUNGX6ce0ZPXYygwtwPvjdkggqg0Xrs9q0WSQsa4R9V6aEFEoDPAweQRJRPTzUrOBPIVRf1cv4SKTHa6ij1NbPSFEJIbwxJIXue2VuBGnSzSJb50=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><msrel:RelData xmlns:msrel="http://schemas.microsoft.com/windows/rel/2005/reldata"><r:license xmlns:r="urn:mpeg:mpeg21:2003:01-REL-R-NS" xmlns:as="http://schemas.microsoft.com/windows/pki/2005/Authenticode"><r:grant><as:ManifestInformation Hash="2131f8dfd9d38099b2714983ef01f267fa8ccbc734b49464ada9146af1661d16" Description="" Url=""><as:assemblyIdentity name="Simael.exe" version="1.0.0.0" publicKeyToken="43946cb5c42aacb0" language="neutral" processorArchitecture="msil" type="win32" /></as:ManifestInformation><as:SignedBy /><as:AuthenticodePublisher><as:X509SubjectName>CN=MANE\k-re0</as:X509SubjectName></as:AuthenticodePublisher></r:grant><r:issuer><Signature Id="AuthenticodeSignature" xmlns="http://www.w3.org/2000/09/xmldsig#"><SignedInfo><CanonicalizationMethod Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /><SignatureMethod Algorithm="http://www.w3.org/2000/09/xmldsig#rsa-sha256" /><Reference URI=""><Transforms><Transform Algorithm="http://www.w3.org/2000/09/xmldsig#enveloped-signature" /><Transform Algorithm="http://www.w3.org/2001/10/xml-exc-c14n#" /></Transforms><DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" /><DigestValue>yR+mr1zUepv//feb3RYVc8B6X39Q/YozDEbPkOxmYJc=</DigestValue></Reference></SignedInfo><SignatureValue>rPP/7bJowYzp1VpO6wYWhI86btml/hASUc7wAP1by88guuERXf4XMi6ooSDCzu7p4SUu/hQC3iy4yAFZRCGutBgzD3VYXq96TU3ucK0U09H41a4UXqLoLaptNcEqOcet0ly93WFg0dA4r3RICLHLihChAtihD16o7N4KLrCK86E=</SignatureValue><KeyInfo><KeyValue><RSAKeyValue><Modulus>t7TBMz3n8cdfVSkKa3zQo4n4WdSVcBlcKDZ/o04UXp8COtBbN6Ep5WVqlqSVUNGX6ce0ZPXYygwtwPvjdkggqg0Xrs9q0WSQsa4R9V6aEFEoDPAweQRJRPTzUrOBPIVRf1cv4SKTHa6ij1NbPSFEJIbwxJIXue2VuBGnSzSJb50=</Modulus><Exponent>AQAB</Exponent></RSAKeyValue></KeyValue><X509Data><X509Certificate>MIIBwTCCASqgAwIBAgIQGSG9x0EkcpRPJjmYxybkujANBgkqhkiG9w0BAQsFADAfMR0wGwYDVQQDHhQATQBBAE4ARQBcAGsALQByAGUAMDAeFw0xODA1MjQwNTUzMDBaFw0xOTA1MjQxMTUzMDBaMB8xHTAbBgNVBAMeFABNAEEATgBFAFwAawAtAHIAZQAwMIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQC3tMEzPefxx19VKQprfNCjifhZ1JVwGVwoNn+jThRenwI60Fs3oSnlZWqWpJVQ0Zfpx7Rk9djKDC3A++N2SCCqDReuz2rRZJCxrhH1XpoQUSgM8DB5BElE9PNSs4E8hVF/Vy/hIpMdrqKPU1s9IUQkhvDEkhe57ZW4EadLNIlvnQIDAQABMA0GCSqGSIb3DQEBCwUAA4GBACKRRPb9OGOkvnRBqZjZZvrG+LzMz2jPxnzL5N1N5QKuNQ9YeTKVlLPfIW0nmN9Rtq8KEunXmu2CqfFrIgLEpm9p7aGIiioA4AKATAZPylvM0yircp73EF9ugoxc0ugw/vG529sUAgSMzqmDxjtREMJJMFK4PDK3oxBt8Derluz1</X509Certificate></X509Data></KeyInfo></Signature></r:issuer></r:license></msrel:RelData></KeyInfo></Signature></asmv1:assembly>
