@@ -313,6 +313,16 @@ namespace Simael.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap perifericos {
+            get {
+                object obj = ResourceManager.GetObject("perifericos", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap repair_pc_icon {
             get {
                 object obj = ResourceManager.GetObject("repair-pc-icon", resourceCulture);

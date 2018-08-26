@@ -69,7 +69,6 @@
             this.txtBuscar.Name = "txtBuscar";
             this.txtBuscar.Size = new System.Drawing.Size(250, 24);
             this.txtBuscar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBuscar_KeyDown);
-            this.txtBuscar.Click += new System.EventHandler(this.txtBuscar_Click);
             // 
             // toolStripMenuItem3
             // 

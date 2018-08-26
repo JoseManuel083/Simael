@@ -55,12 +55,24 @@ namespace Simael
         //el resultado en el datagrid del form bitacora
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
         {
-            buscarRegistro();
+            iniciarBusquedaEquipo();
+        }
+
+        private void iniciarBusquedaEquipo() 
+        {
+            if (txtBuscar.Text.Trim() != String.Empty)
+            {
+                buscarRegistro();
+            }
+            else
+            {
+                MessageBox.Show("Por favor ingrese datos del equipo a buscar", "Simael - Bitacora", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void buscarRegistro() 
         {
-            string param = txtBuscar.Text;
+            string param = txtBuscar.Text.Trim();
             objEditB = new FrmEditarElimBit();
             objEditB.busquedaDataGV(param);
             panelBitacora.Controls.Clear();
@@ -71,18 +83,14 @@ namespace Simael
         {
             if(e.KeyCode == Keys.Enter)
             {
-                buscarRegistro();
+                iniciarBusquedaEquipo();
             }
-        }
-
-        private void txtBuscar_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void panelBitacora_Paint(object sender, PaintEventArgs e)
         {
 
         }
+
     }
 }

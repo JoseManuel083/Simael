@@ -33,6 +33,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBuscar));
             this.dgvPerifericos = new System.Windows.Forms.DataGridView();
+            this.ColNumero = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSicipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCategoria = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,6 +75,7 @@
             this.dgvPerifericos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvPerifericos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPerifericos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ColNumero,
             this.colSicipo,
             this.colCategoria,
             this.colTipo,
@@ -104,6 +106,12 @@
             this.dgvPerifericos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPerifericos_CellContentClick);
             this.dgvPerifericos.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPerifericos_CellDoubleClick);
             this.dgvPerifericos.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dgvPerifericos_KeyDown);
+            // 
+            // ColNumero
+            // 
+            this.ColNumero.HeaderText = "No";
+            this.ColNumero.Name = "ColNumero";
+            this.ColNumero.Width = 40;
             // 
             // colSicipo
             // 
@@ -188,7 +196,6 @@
             this.btnBuscar.TabIndex = 3;
             this.btnBuscar.TabStop = false;
             this.btnBuscar.Click += new System.EventHandler(this.pictureBox1_Click);
-            this.btnBuscar.MouseEnter += new System.EventHandler(this.btnBuscar_MouseEnter);
             // 
             // imageList1
             // 
@@ -260,6 +267,12 @@
         private System.Windows.Forms.DataGridView dgvPerifericos;
         private System.Windows.Forms.TextBox txtBusquedaP;
         private System.Windows.Forms.PictureBox btnBuscar;
+        private System.Windows.Forms.ImageList imageList1;
+        private System.Windows.Forms.PictureBox picExcel;
+        private System.Windows.Forms.ProgressBar progresoExcel;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private System.Windows.Forms.Label lblProgreso;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColNumero;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSicipo;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCategoria;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTipo;
@@ -272,10 +285,5 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colPrecio;
         private System.Windows.Forms.DataGridViewTextBoxColumn colResguardante;
         private System.Windows.Forms.DataGridViewTextBoxColumn colInventario;
-        private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.PictureBox picExcel;
-        private System.Windows.Forms.ProgressBar progresoExcel;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
-        private System.Windows.Forms.Label lblProgreso;
     }
 }

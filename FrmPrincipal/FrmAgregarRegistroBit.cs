@@ -20,12 +20,13 @@ namespace Simael
     public partial class FrmAgregarRegistroBit : UserControl
     {
         private BaseDatoBit objBD;
+       
         public FrmAgregarRegistroBit()
         {
             InitializeComponent();
         }
 
-        private bool validarCamposVacios() 
+        private bool validarCampos() 
         {
             foreach (Control control in this.Controls)
             {
@@ -33,11 +34,28 @@ namespace Simael
                 {
                     if (control.Text.Equals(""))
                     {
+                        MessageBox.Show("Existen campos sin datos , por favor ingrese datos", "Agregar registro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return false;
                     }
                 }
 
             }
+
+            int numero;
+            bool esNumero = int.TryParse(txtSicipo.Text.Trim(), out numero);
+            bool esCadena = int.TryParse(txtFolio.Text.Trim(),out numero);
+
+            if (!esNumero) 
+            {
+                MessageBox.Show("Sicipo inválido, por favor ingrese solo números en este campo", "Agregar registro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            else if(esCadena)
+            {
+                MessageBox.Show("Folio inválido, el folio debe de estar constituido por las Letras EC seguido por un guion y números", "Agregar registro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
             return true;
         }
 
@@ -82,32 +100,23 @@ namespace Simael
         {
             if (buscarRegistrosRepetidos())
             {
-               DialogResult resultado = MessageBox.Show("Registro duplicado, desea registrarlo de todas formas?","Agregar registro", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                DialogResult resultado = MessageBox.Show("Registro duplicado, desea registrarlo de todas formas?","Agregar registro", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
                
                 if(resultado == DialogResult.Yes)
-                {
                    agregarRegistro();
-                }
             }
             else 
             {
-                if (validarCamposVacios())
-                {
+                if (validarCampos())
                     agregarRegistro();
-                }
-                else
-                {
-                    MessageBox.Show("Existen campos sin datos , por favor ingrese datos", "Agregar registro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
             }
-            
-            
         }
+
 
         private bool buscarRegistrosRepetidos() 
         {
             objBD = new BaseDatoBit();
-            DataTable resultado = objBD.buscarRegistroBit(txtFolio.Text.Trim());
+            DataTable resultado = objBD.buscarRegistroBit(txtSicipo.Text.Trim());
             if (resultado.Rows.Count>0)
             {
                 return true;
@@ -117,10 +126,10 @@ namespace Simael
 
         private void buscarEquipo() 
         {
-            if (String.Empty != txtFolio.Text)
+            if (String.Empty != txtSicipo.Text)
             {
                 objBD = new BaseDatoBit();
-                string[] registroPerifericos = objBD.obtenerRegistroBitacora(txtFolio.Text.Trim());
+                string[] registroPerifericos = objBD.obtenerRegistroBitacora(txtSicipo.Text.Trim());
 
                 if (registroPerifericos[0] != null)
                 {
@@ -144,23 +153,13 @@ namespace Simael
 
         private void llenarFormularioBitacora(string []datos) 
         {
-            txtSicipo.Text = datos[0];
+            txtFolio.Text = datos[0];
             txtTipo.Text = datos[1];
             txtMarca.Text = datos[2];
             txtModelo.Text = datos[3];
             txtNoSerie.Text = datos[4];
             txtResguardante.Text = datos[5];
             txtArea.Text =  datos[6];
-        }
-
-        private void FrmAgregarRegistroBit_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FrmAgregarRegistroBit_Load_1(object sender, EventArgs e)
-        {
-
         }
 
         private void txtFolio_KeyDown(object sender, KeyEventArgs e)
@@ -176,12 +175,12 @@ namespace Simael
             limpiarCampos();
         }
 
+
         //Actualiza la hora del formulario mientras se ejecuta el programa, resuelve el problema de hora estatica
         private void timer1_Tick(object sender, EventArgs e)
         {
             dateFecha.Value = DateTime.Now;
         }
-
 
     }
 }

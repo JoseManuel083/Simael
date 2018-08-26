@@ -26,8 +26,12 @@ namespace Simael
         private string idBitacora;
         private int estado;
         private DateTime fecha;
-        DataTable tabla;
+        private DataTable tabla;
         private SaveFileDialog fichero;
+        private DataTable tablaPerifericos;
+        private DataTable tablaPc;
+        private DateTime fechaInicio;
+        private DateTime fechaFinal;
         public FrmEditarElimBit()
         {
             InitializeComponent();
@@ -134,10 +138,18 @@ namespace Simael
             for (int i = 0; i < dgvBitacora.Rows.Count; i++)
             {
                 estado = Int32.Parse(tabla.Rows[i][11].ToString());
+
                 if (estado == 0)
+                {
                     dgvBitacora.Rows[i].Cells[0].Style.BackColor = Color.Yellow;
-                else
+                }
+
+                else 
+                {
                     dgvBitacora.Rows[i].Cells[0].Style.BackColor = Color.Green;
+                }
+
+                dgvBitacora.Rows[i].Cells[0].Value = i + 1;
             }
         }
         private void dgvBitacora_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -158,6 +170,8 @@ namespace Simael
            
         }
 
+
+        
         private void exportarDatosExcel() 
         {
             try
@@ -230,7 +244,8 @@ namespace Simael
 
         private void picExcel_Click(object sender, EventArgs e)
         {
-            exportarDatosExcel();
+            //exportarDatosExcel();
+           //separarDatosPCPerifericos();
         }
 
         private void picExcel_MouseEnter(object sender, EventArgs e)
@@ -262,14 +277,16 @@ namespace Simael
         {
             objBD = new BaseDatoBit();
             DateTime hora = DateTime.Parse("6:00:00 am");
-            DateTime fechaInicio = new DateTime(dtFechaInicial.Value.Year,dtFechaInicial.Value.Month,dtFechaInicial.Value.Day,
+            fechaInicio = new DateTime(dtFechaInicial.Value.Year,dtFechaInicial.Value.Month,dtFechaInicial.Value.Day,
                                           hora.Hour,hora.Minute,hora.Second);
+            fechaFinal = dtFechaFinal.Value;
             DataTable tb = new DataTable();
-            tb = objBD.busquedaAvanzadaBitacora(fechaInicio, dtFechaFinal.Value);
+            tb = objBD.busquedaAvanzadaBitacora(fechaInicio, fechaFinal);
             
             if (tb.Rows.Count > 0)
             {
                 dgvBitacora.DataSource = tb;
+                pintarColoresCeldasGrid();
             }
             else 
             {

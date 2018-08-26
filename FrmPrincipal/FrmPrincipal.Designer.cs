@@ -210,9 +210,9 @@
             this.lblBuscar.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.lblBuscar.Location = new System.Drawing.Point(77, 355);
             this.lblBuscar.Name = "lblBuscar";
-            this.lblBuscar.Size = new System.Drawing.Size(55, 18);
+            this.lblBuscar.Size = new System.Drawing.Size(62, 18);
             this.lblBuscar.TabIndex = 5;
-            this.lblBuscar.Text = "Buscar";
+            this.lblBuscar.Text = "Equipos";
             this.lblBuscar.Click += new System.EventHandler(this.lblBuscar_Click);
             // 
             // panel1

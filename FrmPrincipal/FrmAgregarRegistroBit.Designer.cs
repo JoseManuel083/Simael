@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.txtFolio = new System.Windows.Forms.TextBox();
             this.txtSicipo = new System.Windows.Forms.TextBox();
+            this.txtFolio = new System.Windows.Forms.TextBox();
             this.txtMarca = new System.Windows.Forms.TextBox();
             this.txtArea = new System.Windows.Forms.TextBox();
             this.txtResguardante = new System.Windows.Forms.TextBox();
@@ -58,22 +58,22 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtFolio
-            // 
-            this.txtFolio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtFolio.Location = new System.Drawing.Point(430, 87);
-            this.txtFolio.Name = "txtFolio";
-            this.txtFolio.Size = new System.Drawing.Size(150, 20);
-            this.txtFolio.TabIndex = 0;
-            this.txtFolio.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFolio_KeyDown);
-            // 
             // txtSicipo
             // 
             this.txtSicipo.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtSicipo.Location = new System.Drawing.Point(430, 140);
+            this.txtSicipo.Location = new System.Drawing.Point(430, 87);
             this.txtSicipo.Name = "txtSicipo";
-            this.txtSicipo.Size = new System.Drawing.Size(333, 20);
-            this.txtSicipo.TabIndex = 1;
+            this.txtSicipo.Size = new System.Drawing.Size(150, 20);
+            this.txtSicipo.TabIndex = 0;
+            this.txtSicipo.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtFolio_KeyDown);
+            // 
+            // txtFolio
+            // 
+            this.txtFolio.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtFolio.Location = new System.Drawing.Point(430, 140);
+            this.txtFolio.Name = "txtFolio";
+            this.txtFolio.Size = new System.Drawing.Size(333, 20);
+            this.txtFolio.TabIndex = 1;
             // 
             // txtMarca
             // 
@@ -121,9 +121,9 @@
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.Location = new System.Drawing.Point(264, 91);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(81, 16);
+            this.label1.Size = new System.Drawing.Size(46, 16);
             this.label1.TabIndex = 8;
-            this.label1.Text = "Folio UMAR";
+            this.label1.Text = "Sicipo";
             // 
             // label2
             // 
@@ -131,9 +131,9 @@
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.Location = new System.Drawing.Point(264, 144);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 16);
+            this.label2.Size = new System.Drawing.Size(38, 16);
             this.label2.TabIndex = 9;
-            this.label2.Text = "Sicipo";
+            this.label2.Text = "Folio";
             // 
             // label3
             // 
@@ -329,11 +329,11 @@
             this.Controls.Add(this.txtNoSerie);
             this.Controls.Add(this.txtModelo);
             this.Controls.Add(this.txtMarca);
-            this.Controls.Add(this.txtSicipo);
             this.Controls.Add(this.txtFolio);
+            this.Controls.Add(this.txtSicipo);
             this.Name = "FrmAgregarRegistroBit";
             this.Size = new System.Drawing.Size(1178, 653);
-            this.Load += new System.EventHandler(this.FrmAgregarRegistroBit_Load_1);
+            //this.Load += new System.EventHandler(this.FrmAgregarRegistroBit_Load_1);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -342,8 +342,8 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox txtFolio;
         private System.Windows.Forms.TextBox txtSicipo;
+        private System.Windows.Forms.TextBox txtFolio;
         private System.Windows.Forms.TextBox txtMarca;
         private System.Windows.Forms.TextBox txtArea;
         private System.Windows.Forms.TextBox txtResguardante;

@@ -52,10 +52,10 @@ namespace Simael
 
         private void obtenerEquipoInventario()
         {
-            string sicipo = dgvPerifericos.CurrentRow.Cells[0].Value.ToString();
+            string sicipo = dgvPerifericos.CurrentRow.Cells[1].Value.ToString();
             objBD = new BaseDatoBit();
             
-            List<String> equipo = objBD.obtenerRegistroReporte(sicipo);
+            List<String> equipo = objBD.obtenerEquipos(sicipo);
             if (equipo.Count == 12)
             {
                 objDet = new FormDetalleRegistroPeriferico(equipo);
@@ -66,42 +66,58 @@ namespace Simael
                 objDetPc = new FormDetalleRegistroPC(equipo);
                 objDetPc.ShowDialog();
             }
-
         }
+
+        //Obtiene los datos de un registro en especifico (del que el usuario elije) del datagrid una vez que se ejecutó una busqueda.
+        //Los datos de este registro son enviados a un formulario para mostrarlo al usuario.
         private void obtenerDatosCelda() 
         {
-            string sicipo = dgvPerifericos.CurrentRow.Cells[0].Value.ToString();
-            string categoria = dgvPerifericos.CurrentRow.Cells[1].Value.ToString();
-            string tipo = dgvPerifericos.CurrentRow.Cells[2].Value.ToString();
-            string marca = dgvPerifericos.CurrentRow.Cells[3].Value.ToString();
-            string modelo = dgvPerifericos.CurrentRow.Cells[4].Value.ToString();
-            string noSerie = dgvPerifericos.CurrentRow.Cells[5].Value.ToString();
-            string color = dgvPerifericos.CurrentRow.Cells[6].Value.ToString();
-            string composicion = dgvPerifericos.CurrentRow.Cells[7].Value.ToString();
-            string estadoFisico = dgvPerifericos.CurrentRow.Cells[8].Value.ToString();
-            string precio = dgvPerifericos.CurrentRow.Cells[9].Value.ToString();
-            string resguardante = dgvPerifericos.CurrentRow.Cells[10].Value.ToString();
-            string inventario = dgvPerifericos.CurrentRow.Cells[11].Value.ToString();
+            string sicipo = dgvPerifericos.CurrentRow.Cells[1].Value.ToString();
+            string categoria = dgvPerifericos.CurrentRow.Cells[2].Value.ToString();
+            string tipo = dgvPerifericos.CurrentRow.Cells[3].Value.ToString();
+            string marca = dgvPerifericos.CurrentRow.Cells[4].Value.ToString();
+            string modelo = dgvPerifericos.CurrentRow.Cells[5].Value.ToString();
+            string noSerie = dgvPerifericos.CurrentRow.Cells[6].Value.ToString();
+            string color = dgvPerifericos.CurrentRow.Cells[7].Value.ToString();
+            string composicion = dgvPerifericos.CurrentRow.Cells[8].Value.ToString();
+            string estadoFisico = dgvPerifericos.CurrentRow.Cells[9].Value.ToString();
+            string precio = dgvPerifericos.CurrentRow.Cells[10].Value.ToString();
+            string resguardante = dgvPerifericos.CurrentRow.Cells[11].Value.ToString();
+            string inventario = dgvPerifericos.CurrentRow.Cells[12].Value.ToString();
             objDet.ShowDialog();
-
         }
+
+        //Enumera los resultados de las busquedas, para facilitar el conteo de resultados devueltos por la consulta.
+        private void enumerarResultadosBusqueda() 
+        {
+            for (int i = 0; i < dgvPerifericos.Rows.Count; i++)
+            {
+                dgvPerifericos.Rows[i].Cells[0].Value = i + 1;
+            }
+        }
+
         private void llenarDatagridPerifericos() 
         {
             dgvPerifericos.DataSource = objBD.registrosPerifericos(txtBusquedaP.Text.Trim());
+            
+            if (dgvPerifericos.Rows.Count > 0) 
+            {
+                enumerarResultadosBusqueda();   
+            }
+            
             dgvPerifericos.Focus();
-
+            
             if (dgvPerifericos.Rows.Count == 0)
             {
                 MessageBox.Show("No se han encontrado resultado para la busqueda", "Inventario", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
-            
-            
         }
+
         public void llenarGridBusquedaAvanzada(DataTable tabla) 
         {
             dgvPerifericos.DataSource = tabla;
+            enumerarResultadosBusqueda();
             dgvPerifericos.Focus();
-
         }
       
 
@@ -145,16 +161,6 @@ namespace Simael
             }
         }
 
-        private void btnBuscar_MouseEnter(object sender, EventArgs e)
-        {
-           
-        }
-
-        private void dgvPerifericos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void btnExportar_Click(object sender, EventArgs e)
         {
             if (dgvPerifericos.Rows.Count > 0)
@@ -165,7 +171,6 @@ namespace Simael
             {
                 MessageBox.Show("No hay datos para exportar","Búsqueda",MessageBoxButtons.OK,MessageBoxIcon.Warning);
             }
-            
         }
 
         private void exportarDataGridExcel(DataGridView dgv) 
@@ -186,8 +191,6 @@ namespace Simael
                 MessageBox.Show(ex.ToString(),"Exportar",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
         }
-
-        
 
         private void FrmBuscar_Load(object sender, EventArgs e)
         {
@@ -243,7 +246,6 @@ namespace Simael
             libroExcel.SaveAs(fichero.FileName, Microsoft.Office.Interop.Excel.XlFileFormat.xlWorkbookNormal);
             libroExcel.Close(true);
             aplicacion.Quit();
-            
         }
 
         private void ocultarBarraDeProgreso(bool estado) 
@@ -258,8 +260,8 @@ namespace Simael
                 lblProgreso.Visible = true;
                 progresoExcel.Visible = true;
             }
-            
         }
+
         private void backgroundWorker1_ProgressChanged(object sender, ProgressChangedEventArgs e)
         {
             ocultarBarraDeProgreso(false);
@@ -281,6 +283,11 @@ namespace Simael
                 MessageBox.Show("Datos guardados correctamente", "SIMAEL - Inventario", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ocultarBarraDeProgreso(true);
             }
+        }
+
+        private void dgvPerifericos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
     }
