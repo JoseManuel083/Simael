@@ -68,7 +68,12 @@
     <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
-    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.ReportViewer.Common, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91" />
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\Downloads\Net4.5_MySql.Data.6.9.10\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Web" />
@@ -83,124 +88,136 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AgregarReporteBajas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AgregarReporteBajas.Designer.cs">
+      <DependentUpon>AgregarReporteBajas.cs</DependentUpon>
+    </Compile>
     <Compile Include="BaseDatos\BaseDatoBit.cs" />
-    <Compile Include="Clases\Bitacora.cs" />
-    <Compile Include="Clases\Reporte.cs" />
-    <Compile Include="FormBarraProgreso.cs">
+    <Compile Include="Clases\EquipoElectronico.cs" />
+    <Compile Include="Clases\Periferico.cs" />
+    <Compile Include="Editar_pc.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormBarraProgreso.Designer.cs">
-      <DependentUpon>FormBarraProgreso.cs</DependentUpon>
+    <Compile Include="Editar_pc.Designer.cs">
+      <DependentUpon>Editar_pc.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDetalleRegistroPC.cs">
+    <Compile Include="Editar_periferico.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDetalleRegistroPC.Designer.cs">
-      <DependentUpon>FormDetalleRegistroPC.cs</DependentUpon>
+    <Compile Include="Editar_periferico.Designer.cs">
+      <DependentUpon>Editar_periferico.cs</DependentUpon>
     </Compile>
-    <Compile Include="FormDetalleRegistroPeriferico.cs">
+    <Compile Include="Agregar_reporte.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Agregar_reporte.Designer.cs">
+      <DependentUpon>Agregar_reporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Agregar_pc.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Agregar_pc.Designer.cs">
+      <DependentUpon>Agregar_pc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Agregar_periferico.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Agregar_periferico.Designer.cs">
+      <DependentUpon>Agregar_periferico.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Agregar_registro_bitacora.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Agregar_registro_bitacora.Designer.cs">
+      <DependentUpon>Agregar_registro_bitacora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Agregar_registros_inventario.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Agregar_registros_inventario.Designer.cs">
+      <DependentUpon>Agregar_registros_inventario.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Buscar_principal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Buscar_principal.Designer.cs">
+      <DependentUpon>Buscar_principal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Principal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FormDetalleRegistroPeriferico.Designer.cs">
-      <DependentUpon>FormDetalleRegistroPeriferico.cs</DependentUpon>
+    <Compile Include="Principal.Designer.cs">
+      <DependentUpon>Principal.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmAgregarReportes.cs">
+    <Compile Include="Historial_reportes.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FrmAgregarReportes.Designer.cs">
-      <DependentUpon>FrmAgregarReportes.cs</DependentUpon>
+    <Compile Include="Historial_reportes.Designer.cs">
+      <DependentUpon>Historial_reportes.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmAgregarComputadora.cs">
+    <Compile Include="Inicio.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FrmAgregarComputadora.Designer.cs">
-      <DependentUpon>FrmAgregarComputadora.cs</DependentUpon>
+    <Compile Include="Inicio.Designer.cs">
+      <DependentUpon>Inicio.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmAgregarPerifericoInventario.cs">
+    <Compile Include="Menu_buscar.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FrmAgregarPerifericoInventario.Designer.cs">
-      <DependentUpon>FrmAgregarPerifericoInventario.cs</DependentUpon>
+    <Compile Include="Menu_buscar.Designer.cs">
+      <DependentUpon>Menu_buscar.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmAgregarRegistroBit.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="FrmAgregarRegistroBit.Designer.cs">
-      <DependentUpon>FrmAgregarRegistroBit.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmAgregarRegistroInv.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="FrmAgregarRegistroInv.Designer.cs">
-      <DependentUpon>FrmAgregarRegistroInv.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmBuscar.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="FrmBuscar.Designer.cs">
-      <DependentUpon>FrmBuscar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmHistorialReportes.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="FrmHistorialReportes.Designer.cs">
-      <DependentUpon>FrmHistorialReportes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmInicio.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="FrmInicio.Designer.cs">
-      <DependentUpon>FrmInicio.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmMenuBuscar.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="FrmMenuBuscar.Designer.cs">
-      <DependentUpon>FrmMenuBuscar.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmBusquedaAvanzada.cs">
+    <Compile Include="Busqueda_avanzada.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmBusquedaAvanzada.Designer.cs">
-      <DependentUpon>FrmBusquedaAvanzada.cs</DependentUpon>
+    <Compile Include="Busqueda_avanzada.Designer.cs">
+      <DependentUpon>Busqueda_avanzada.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEdicionRegistros.cs">
+    <Compile Include="Editar_registro_bitacora.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmEdicionRegistros.Designer.cs">
-      <DependentUpon>FrmEdicionRegistros.cs</DependentUpon>
+    <Compile Include="Editar_registro_bitacora.Designer.cs">
+      <DependentUpon>Editar_registro_bitacora.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEditarElimBit.cs">
+    <Compile Include="Historial_bitacora.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FrmEditarElimBit.Designer.cs">
-      <DependentUpon>FrmEditarElimBit.cs</DependentUpon>
+    <Compile Include="Historial_bitacora.Designer.cs">
+      <DependentUpon>Historial_bitacora.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPrincipal.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmPrincipal.Designer.cs">
-      <DependentUpon>FrmPrincipal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmBitacora.cs">
+    <Compile Include="Principal_bitacora.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FrmBitacora.Designer.cs">
-      <DependentUpon>FrmBitacora.cs</DependentUpon>
+    <Compile Include="Principal_bitacora.Designer.cs">
+      <DependentUpon>Principal_bitacora.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMenuReportes.cs">
+    <Compile Include="Menu_reportes.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FrmMenuReportes.Designer.cs">
-      <DependentUpon>FrmMenuReportes.cs</DependentUpon>
+    <Compile Include="Menu_reportes.Designer.cs">
+      <DependentUpon>Menu_reportes.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReporteBaja.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ReporteBaja.Designer.cs">
+      <DependentUpon>ReporteBaja.cs</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\FrmReporte.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Reportes\FrmReporte.Designer.cs">
       <DependentUpon>FrmReporte.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reportes\FrmReporteBaja.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reportes\FrmReporteBaja.Designer.cs">
+      <DependentUpon>FrmReporteBaja.cs</DependentUpon>
     </Compile>
     <Compile Include="Reportes\Reporte.cs">
       <AutoGen>True</AutoGen>
@@ -208,59 +225,71 @@
       <DependentUpon>Reporte.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <EmbeddedResource Include="FormBarraProgreso.resx">
-      <DependentUpon>FormBarraProgreso.cs</DependentUpon>
+    <Compile Include="Reportes\ReporteBaja.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ReporteBaja.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Vistas\Seleccion_reporte.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Vistas\Seleccion_reporte.Designer.cs">
+      <DependentUpon>Seleccion_reporte.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AgregarReporteBajas.resx">
+      <DependentUpon>AgregarReporteBajas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDetalleRegistroPC.resx">
-      <DependentUpon>FormDetalleRegistroPC.cs</DependentUpon>
+    <EmbeddedResource Include="Editar_pc.resx">
+      <DependentUpon>Editar_pc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FormDetalleRegistroPeriferico.resx">
-      <DependentUpon>FormDetalleRegistroPeriferico.cs</DependentUpon>
+    <EmbeddedResource Include="Editar_periferico.resx">
+      <DependentUpon>Editar_periferico.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmAgregarReportes.resx">
-      <DependentUpon>FrmAgregarReportes.cs</DependentUpon>
+    <EmbeddedResource Include="Agregar_reporte.resx">
+      <DependentUpon>Agregar_reporte.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmAgregarComputadora.resx">
-      <DependentUpon>FrmAgregarComputadora.cs</DependentUpon>
+    <EmbeddedResource Include="Agregar_pc.resx">
+      <DependentUpon>Agregar_pc.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmAgregarPerifericoInventario.resx">
-      <DependentUpon>FrmAgregarPerifericoInventario.cs</DependentUpon>
+    <EmbeddedResource Include="Agregar_periferico.resx">
+      <DependentUpon>Agregar_periferico.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmAgregarRegistroBit.resx">
-      <DependentUpon>FrmAgregarRegistroBit.cs</DependentUpon>
+    <EmbeddedResource Include="Agregar_registro_bitacora.resx">
+      <DependentUpon>Agregar_registro_bitacora.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmAgregarRegistroInv.resx">
-      <DependentUpon>FrmAgregarRegistroInv.cs</DependentUpon>
+    <EmbeddedResource Include="Agregar_registros_inventario.resx">
+      <DependentUpon>Agregar_registros_inventario.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmBuscar.resx">
-      <DependentUpon>FrmBuscar.cs</DependentUpon>
+    <EmbeddedResource Include="Buscar_principal.resx">
+      <DependentUpon>Buscar_principal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmHistorialReportes.resx">
-      <DependentUpon>FrmHistorialReportes.cs</DependentUpon>
+    <EmbeddedResource Include="Principal.resx">
+      <DependentUpon>Principal.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmInicio.resx">
-      <DependentUpon>FrmInicio.cs</DependentUpon>
+    <EmbeddedResource Include="Historial_reportes.resx">
+      <DependentUpon>Historial_reportes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMenuBuscar.resx">
-      <DependentUpon>FrmMenuBuscar.cs</DependentUpon>
+    <EmbeddedResource Include="Inicio.resx">
+      <DependentUpon>Inicio.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmBusquedaAvanzada.resx">
-      <DependentUpon>FrmBusquedaAvanzada.cs</DependentUpon>
+    <EmbeddedResource Include="Menu_buscar.resx">
+      <DependentUpon>Menu_buscar.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmEdicionRegistros.resx">
-      <DependentUpon>FrmEdicionRegistros.cs</DependentUpon>
+    <EmbeddedResource Include="Busqueda_avanzada.resx">
+      <DependentUpon>Busqueda_avanzada.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmEditarElimBit.resx">
-      <DependentUpon>FrmEditarElimBit.cs</DependentUpon>
+    <EmbeddedResource Include="Editar_registro_bitacora.resx">
+      <DependentUpon>Editar_registro_bitacora.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMenuReportes.resx">
-      <DependentUpon>FrmMenuReportes.cs</DependentUpon>
+    <EmbeddedResource Include="Historial_bitacora.resx">
+      <DependentUpon>Historial_bitacora.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmPrincipal.resx">
-      <DependentUpon>FrmPrincipal.cs</DependentUpon>
+    <EmbeddedResource Include="Menu_reportes.resx">
+      <DependentUpon>Menu_reportes.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmBitacora.resx">
-      <DependentUpon>FrmBitacora.cs</DependentUpon>
+    <EmbeddedResource Include="Principal_bitacora.resx">
+      <DependentUpon>Principal_bitacora.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -272,12 +301,25 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ReporteBaja.resx">
+      <DependentUpon>ReporteBaja.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\FrmReporte.resx">
       <DependentUpon>FrmReporte.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\FrmReporteBaja.resx">
+      <DependentUpon>FrmReporteBaja.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Reporte.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Reporte.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\ReporteBaja.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ReporteBaja.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Vistas\Seleccion_reporte.resx">
+      <DependentUpon>Seleccion_reporte.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -413,6 +455,24 @@
     <None Include="Resources\perifericos.png" />
   </ItemGroup>
   <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\home1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\busacarInv.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\deleteImg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reporteImg.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\respaldo.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

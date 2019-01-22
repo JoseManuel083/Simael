@@ -1,6 +1,7 @@
 delimiter $$
 drop procedure if exists agregarPeriferico$$
 create procedure agregarPeriferico(IN ID varchar(20),
+				   IN folio varchar(15),
                                    IN Categoria varchar(50),
                                    IN Tipo varchar(30),
                                    IN Marca varchar(40), 
@@ -14,7 +15,7 @@ create procedure agregarPeriferico(IN ID varchar(20),
                                    IN inventario varchar(300)
 ) 
 BEGIN
-    INSERT into perifericos values(ID,Categoria,Tipo,Marca,Modelo,NoSerie,Color,Composicion,
+    INSERT into perifericos values(ID,folio,Categoria,Tipo,Marca,Modelo,NoSerie,Color,Composicion,
     EstadoFisico,precio,resguardante,inventario);
 END$$
 DELIMITER ;
